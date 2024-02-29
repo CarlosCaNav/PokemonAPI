@@ -1,0 +1,23 @@
+.poke{
+    position: absolute;
+    height: 128px;
+    width: 128px;
+    border: 2px solid black;/* 
+    background-image: url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png); */
+background-size: cover;
+}
+.dos{
+    margin-left: 150px;
+}
+.tres{
+    margin-left: 300px;
+}
+.cuatro{
+    margin-top: 150px;
+}
+.pokedex{
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    border: 2px solid black;
+}
