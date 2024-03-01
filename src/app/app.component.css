@@ -1,24 +1,41 @@
-.poke{
+.fondo{
     position: absolute;
-    height: 128px;
-    width: 128px;
-    border: 2px solid black;/* 
-    background-image: url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png); */
-background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(/assets/fondo.jpg);
+    background-size: 100% 100%;
 }
-.dos{
+
+.poke {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    /* border: 2px solid black; */
+    background-size: cover;
+    transition: 2000ms;
+}
+
+.dos {
     margin-left: 150px;
 }
-.tres{
+
+.tres {
     margin-left: 300px;
 }
-.cuatro{
+
+.cuatro {
     margin-top: 150px;
 }
-.pokedex{
+
+.pokedex {
     position: absolute;
     height: 500px;
     width: 500px;
     border: 2px solid black;
     background-color: red;
+    font-size: 50px;
+    text-align: center;
+    padding: 50px;
+    margin-left: calc(50vw - 250px);
+    margin-top: 50px;
 }

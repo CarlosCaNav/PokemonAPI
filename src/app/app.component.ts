@@ -15,10 +15,29 @@ export class AppComponent {
   URL_LISTA_POKEMON: string = 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0';
   pokedex: boolean = false;
   pokedexDatos: string = "pito";
+
   constructor(private http: HttpClient) { }
 
-  ngOnInit() {
 
+  ngOnInit() {
+   
+  const top = Math.floor(Math.random() * (window.innerHeight - 500));
+  const left = Math.floor(Math.random() * window.innerWidth);
+
+  const div = document.getElementById('PokeMovimiento')!; // Operador de afirmación no nula
+
+  div.style.top = `${top}px`;
+  div.style.left = `${left}px`;
+  div.style.scale = `${top / window.innerHeight}`;
+
+  setInterval(this.ngOnInit, 1000); /* soy un terrorista, seguro que hay formas mejores */
+   
+
+    for (let i = 0; i < 5; i++) { /* respuesta.results.length  */
+    var numeroAleatorio = Math.floor(Math.random() * (150));
+    this.pokeindex[i] = numeroAleatorio;
+  
+  }
     /*  console.log(this.URL_LISTA_POKEMON); */
 
     // http.get nos devuelve una peticion asincrona (no sabemos cuando se ejecuta)
@@ -28,8 +47,10 @@ export class AppComponent {
     peticionGet.subscribe((respuesta: any) => {
 
       for (let i = 0; i < 4; i++) { /* respuesta.results.length  */
-        var numeroAleatorio = Math.floor(Math.random() * (150));
-        const url = respuesta.results[numeroAleatorio].url;
+        const url = respuesta.results[this.pokeindex[i]].url;
+
+
+
         /*   console.log("Holi" + respuesta.results[i].sprites.front_default); */
 
         //  this.pokeUno[i] = "url(" + respuesta.results.sprites.front_default + ")"
@@ -37,10 +58,6 @@ export class AppComponent {
 
         this.http.get(url).subscribe((pokemon: any) => {
           this.pokeIMG[i] = "url(" + pokemon.sprites.front_default + ")";
-          this.pokeindex[i] = numeroAleatorio;
-          console.log(this.pokeIMG);
-          console.log(this.pokeindex);
-          console.log(url);
           /* 
                     console.log("Nombre: " + pokemon.name + ". Movimiento favorito: " + pokemon.moves[0].move.name);
           
@@ -59,8 +76,8 @@ export class AppComponent {
 
     this.http.get(this.URL_LISTA_POKEMON)
       .subscribe((respuesta: any) => {
-        console.log(`Nombre del primer Pokémon: ${respuesta.results[PokemonElegido].name}`);
-        this.pokedexDatos = `Nombre del primer Pokémon: ${respuesta.results[PokemonElegido].name}`
+        this.pokedexDatos = `Éste Pokemon se llama: ${respuesta.results[PokemonElegido].name}`
       });
   }
+  
 }
