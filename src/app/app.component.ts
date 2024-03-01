@@ -70,9 +70,7 @@ export class AppComponent {
   info(indice: number) {
     var PokemonElegido = this.pokeindex[indice]
 
-    if (this.pokedex == true) {
-      this.pokedex = false
-    } else { this.pokedex = true };
+    this.pokedex = !this.pokedex;
 
     this.http.get(this.URL_LISTA_POKEMON)
       .subscribe((respuesta: any) => {
