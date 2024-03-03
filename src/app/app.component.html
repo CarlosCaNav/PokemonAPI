@@ -1,7 +1,10 @@
-<div class="fondo"></div>
-<div class="poke uno" id="PokeMovimiento" (click)="info(0)" [ngStyle]="{'background-image': pokeIMG[0]}"></div>
-<!-- <div class="poke dos" (click)="info(1)" [ngStyle]="{'background-image': pokeIMG[1]}"></div>
-<div class="poke tres" (click)="info(2)" [ngStyle]="{'background-image': pokeIMG[2]}"></div>
-<div class="poke cuatro"(click)="info(3)" [ngStyle]="{'background-image': pokeIMG[3]}"></div> -->
 
-<div *ngIf="this.pokedex" class="pokedex"  (click)="info(0)">{{this.pokedexDatos}}</div>
+<div class="pokedex"  *ngIf="this.bienvenida" (click)="empezar()">Haz click aquí para empezar</div>
+
+<div class="fondo"></div>
+<div class="poke uno" (click)="info(0)" [ngStyle]="{'background-image': pokeIMG[0], 'margin-left': posicionPokemonsX[0], 'margin-top': posicionPokemonsY[0], 'scale': pokemonScale[0]}"></div>
+<div class="poke dos" (click)="info(1)" [ngStyle]="{'background-image': pokeIMG[1], 'margin-left': posicionPokemonsX[1], 'margin-top': posicionPokemonsY[1], 'scale': pokemonScale[1]}"></div>
+<div class="poke tres" (click)="info(1)" [ngStyle]="{'background-image': pokeIMG[2], 'margin-left': posicionPokemonsX[2], 'margin-top': posicionPokemonsY[2], 'scale': pokemonScale[2]}"></div>
+<div class="poke cuatro" (click)="info(3)" [ngStyle]="{'background-image': pokeIMG[3], 'margin-left': posicionPokemonsX[3], 'margin-top': posicionPokemonsY[3], 'scale': pokemonScale[3] }"></div>
+
+<div *ngIf="this.pokedex" class="pokedex" (click)="info(0)">{{this.pokedexDatos}}</div>
