@@ -1,10 +1,52 @@
+<img *ngIf="this.fases == 1" style="z-index: 2; position: absolute;" src="/assets/omitirIntro.jpg" (click)="fase(2)">
 
-<div class="pokedex"  *ngIf="this.bienvenida" (click)="empezar()">Haz click aquí para empezar</div>
+<div class="fondo inicial" *ngIf="this.fases == 1">
+    <div class="pokedex" *ngIf="this.bienvenida" (click)="empezar()">
+        <h4>Este es un juego de Pokemon desarrollado por alguien que nunca ha visto ni jugado a nada de Pokemon</h4>
+        (60 segundos)
+        <button>empezar</button>
+    </div>
 
-<div class="fondo"></div>
-<div class="poke uno" (click)="info(0)" [ngStyle]="{'background-image': pokeIMG[0], 'margin-left': posicionPokemonsX[0], 'margin-top': posicionPokemonsY[0], 'scale': pokemonScale[0]}"></div>
-<div class="poke dos" (click)="info(1)" [ngStyle]="{'background-image': pokeIMG[1], 'margin-left': posicionPokemonsX[1], 'margin-top': posicionPokemonsY[1], 'scale': pokemonScale[1]}"></div>
-<div class="poke tres" (click)="info(1)" [ngStyle]="{'background-image': pokeIMG[2], 'margin-left': posicionPokemonsX[2], 'margin-top': posicionPokemonsY[2], 'scale': pokemonScale[2]}"></div>
-<div class="poke cuatro" (click)="info(3)" [ngStyle]="{'background-image': pokeIMG[3], 'margin-left': posicionPokemonsX[3], 'margin-top': posicionPokemonsY[3], 'scale': pokemonScale[3] }"></div>
+    <div class="poke uno" (click)="info(0)" [ngStyle]="{'background-image': pokeIMG[0], 'margin-left': posicionPokemonsX[0], 
+'transition': velocidadTransicion, 'margin-top': posicionPokemonsY[0], 'scale': pokemonScale[0]}"></div>
+    <div class="poke dos" (click)="info(1)" [ngStyle]="{'background-image': pokeIMG[1], 'margin-left': posicionPokemonsX[1], 
+'transition': velocidadTransicion, 'margin-top': posicionPokemonsY[1], 'scale': pokemonScale[1]}"></div>
+    <div class="poke tres" (click)="info(1)" [ngStyle]="{'background-image': pokeIMG[2], 'margin-left': posicionPokemonsX[2],
+ 'transition': velocidadTransicion, 'margin-top': posicionPokemonsY[2], 'scale': pokemonScale[2]}"></div>
+    <div class="poke cuatro" (click)="info(3)" [ngStyle]="{'background-image': pokeIMG[3], 'margin-left': posicionPokemonsX[3],
+ 'transition': velocidadTransicion, 'margin-top': posicionPokemonsY[3], 'scale': pokemonScale[3] }"></div>
 
-<div *ngIf="this.pokedex" class="pokedex" (click)="info(0)">{{this.pokedexDatos}}</div>
+    <div *ngIf="this.pokedex" class="pokedex" (click)="info(0)">{{this.pokedexDatos}}</div>
+    <div class="teamRocket" *ngIf="this.teamRocket">
+        <img src="/assets/teamRocket.jpg"> <br><br>
+        "Ahora esto poquemons son nuestros, estos pokemons no eran de nadie, pero no queremos problemas. <br>
+        Si nos demuestras que lo sabes todo de ellos los liberaremos. Si no, serán pienso para Picachus"
+        <br><br><button (click)="fase(2)">Empezar</button>
+    </div>
+
+    <div class="pokeballs" [ngStyle]="{'margin-left': pokeballsVolando}"> <!-- *ngIf="this.pokeballsVolandoBoolean" -->
+        <img class="pUno" src="/assets/pokeball.png">
+        <img class="pDos" src="/assets/pokeball.png">
+        <img class="pTres" src="/assets/pokeball.png">
+        <img class="pCuatro" src="/assets/pokeball.png">
+    </div>
+</div>
+
+<div class="fondo carcel" *ngIf="this.fases == 2">
+
+    <div class="cuestionario">
+        <div class="PokeonEncarcelado" [ngStyle]="{'background-image': pokeIMG[0]}"></div>
+        <!-- <img style="height: 400px;width: 400px; position: absolute; border: 2px solid red; margin-left: 500px;" [ngStyle]="{'background-image': pokeIMG[0]}"> -->
+        <!-- style="z-index: 1; position: absolute;" -->
+        <img class="pokemonInteriorCarcel" src="/assets/celda.png"> <!-- style="z-index: 1; position: absolute;" -->
+        <div class="preguntas">
+            este pokemon es un: <br><br>
+            <button>squirting</button>  <br><br>
+            <button>BulbaSur</button>  <br><br>
+            <button>Piachus</button>  <br><br>
+            <button>o el correcto</button> <br><br>
+            No me ha dado tiempo a ponerme con esto, así que aquí se queda.
+        </div>
+    </div>
+
+</div>
