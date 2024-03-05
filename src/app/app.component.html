@@ -11,7 +11,7 @@
 'transition': velocidadTransicion, 'margin-top': posicionPokemonsY[0], 'scale': pokemonScale[0]}"></div>
     <div class="poke dos" (click)="info(1)" [ngStyle]="{'background-image': pokeIMG[1], 'margin-left': posicionPokemonsX[1], 
 'transition': velocidadTransicion, 'margin-top': posicionPokemonsY[1], 'scale': pokemonScale[1]}"></div>
-    <div class="poke tres" (click)="info(1)" [ngStyle]="{'background-image': pokeIMG[2], 'margin-left': posicionPokemonsX[2],
+    <div class="poke tres" (click)="info(2)" [ngStyle]="{'background-image': pokeIMG[2], 'margin-left': posicionPokemonsX[2],
  'transition': velocidadTransicion, 'margin-top': posicionPokemonsY[2], 'scale': pokemonScale[2]}"></div>
     <div class="poke cuatro" (click)="info(3)" [ngStyle]="{'background-image': pokeIMG[3], 'margin-left': posicionPokemonsX[3],
  'transition': velocidadTransicion, 'margin-top': posicionPokemonsY[3], 'scale': pokemonScale[3] }"></div>
@@ -19,9 +19,10 @@
     <div *ngIf="this.pokedex" class="pokedex" (click)="info(0)">{{this.pokedexDatos}}</div>
     <div class="teamRocket" *ngIf="this.teamRocket">
         <img src="/assets/teamRocket.jpg"> <br><br>
-        "Ahora esto poquemons son nuestros, estos pokemons no eran de nadie, pero no queremos problemas. <br>
-        Si nos demuestras que lo sabes todo de ellos los liberaremos. Si no, serán pienso para Picachus"
-        <br><br><button (click)="fase(2)">Empezar</button>
+        <div style="margin-left: 30px; margin-right: 30px;">
+        "Ahora estos poquemons son nuestros, estos pokemons no eran de nadie, pero no queremos problemas. <br>
+        Si nos demuestras que lo sabes todo de ellos los liberaremos. Si no, serán pienso para Picachus" </div>
+        <button style="margin-left: 500px; margin-top: 10px;" (click)="fase(2)">Empezar</button>
     </div>
 
     <div class="pokeballs" [ngStyle]="{'margin-left': pokeballsVolando}"> <!-- *ngIf="this.pokeballsVolandoBoolean" -->
@@ -41,11 +42,10 @@
         <img class="pokemonInteriorCarcel" src="/assets/celda.png"> <!-- style="z-index: 1; position: absolute;" -->
         <div class="preguntas">
             este pokemon es un: <br><br>
-            <button>squirting</button>  <br><br>
-            <button>BulbaSur</button>  <br><br>
-            <button>Piachus</button>  <br><br>
-            <button>o el correcto</button> <br><br>
-            No me ha dado tiempo a ponerme con esto, así que aquí se queda.
+            <button (click)="eleccion(false)">{{this.pokeNombre[4]}}</button> <br><br>
+            <button (click)="eleccion(true)">{{this.pokeNombre[0]}}</button> <br><br>
+            <button (click)="eleccion(false)">{{this.pokeNombre[5]}}</button> <br><br>
+            <button (click)="eleccion(false)">{{this.pokeNombre[6]}}</button> <br><br>
         </div>
     </div>
 

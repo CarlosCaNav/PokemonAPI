@@ -10,13 +10,11 @@ export class AppComponent {
   title = 'PokeAPI';
 
   fases: number = 1;
-  bienvenida: boolean = true;
   pokeindex: Array<number> = [];
-  faseDos: boolean = false;
 
   pokeIMG: Array<string> = [];
+  pokeNombre: Array<string> = [];
   URL_LISTA_POKEMON: string = 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0';
-  pokedex: boolean = false;
   pokedexDatos: string = "pito";
   posicionPokemonsX: Array<string> = [];
   posicionPokemonsY: Array<string> = [];
@@ -24,6 +22,10 @@ export class AppComponent {
   velocidadTransicion: string = "1500ms";
 
   pokeballsVolando: string = "";
+
+  bienvenida: boolean = true;
+  faseDos: boolean = false;
+  pokedex: boolean = false;
   pokeballsVolandoBoolean: boolean = false;
   teamRocket: boolean = false;
 
@@ -40,7 +42,7 @@ export class AppComponent {
          */
     this.bienvenida = false;
 
-    for (let i = 0; i <= 38; ++i) {
+    for (let i = 0; i <= 7; ++i) { /* numero de movimientos */
       setTimeout(() => {
         for (let j = 0; j <= 4; ++j) { /* this.pokeindex.length */
 
@@ -55,13 +57,13 @@ export class AppComponent {
             console.log(this.posicionPokemonsX);
 
 
-          }, 250 * j);
+          }, 500 * j);
         }
 
         this.faseDos = true;
         console.log(this.posicionPokemonsX);
 
-      }, 1000 * i)
+      }, 2500 * i)
       /* setInterval(this.empezar, 1000);  *//* soy un terrorista, seguro que hay formas mejores */
     }
     setTimeout(() => {
@@ -78,7 +80,7 @@ export class AppComponent {
         this.pokeballsVolando = "-1000px";
       }
 
-    }, 40000);
+    }, 20000); /* el tiempo que tarda en venir el teamRocket */
   }
 
   ngOnInit() {
@@ -108,7 +110,7 @@ export class AppComponent {
     // nos suscribimos a ella pasandole la funcion que queremos ejecutar cuando se resuelva (ahora o en 1 año)
     peticionGet.subscribe((respuesta: any) => {
 
-      for (let i = 0; i <= 4; i++) { /* respuesta.results.length  */
+      for (let i = 0; i <= 7; i++) { /* respuesta.results.length  */
         const url = respuesta.results[this.pokeindex[i]].url;
 
 
@@ -120,6 +122,8 @@ export class AppComponent {
 
         this.http.get(url).subscribe((pokemon: any) => {
           this.pokeIMG[i] = "url(" + pokemon.sprites.front_default + ")";
+          this.pokeNombre[i] = pokemon.name.charAt(0).toUpperCase() + pokemon.name.substring(1);
+
           /* 
                     console.log("Nombre: " + pokemon.name + ". Movimiento favorito: " + pokemon.moves[0].move.name);
           
@@ -141,8 +145,14 @@ export class AppComponent {
         this.pokedexDatos = `Éste Pokemon se llama: ${respuesta.results[PokemonElegido].name.charAt(0).toUpperCase() + respuesta.results[PokemonElegido].name.substring(1)}`
       });
   }
-fase(n : number){
-this.fases = n;
+  fase(n: number) {
+    this.fases = n;
 
-}
+  }
+  eleccion(acierto : boolean){
+   if (acierto) {
+     window.alert("acertaste")
+    }
+    else {window.alert("pienso para Picachus!")}
+  }
 }
