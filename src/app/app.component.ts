@@ -35,16 +35,11 @@ export class AppComponent {
 
 
   empezar() {
-    /* 
-        this.posicionPokemonsX = ['-50px', '-50px', '-50px', '-50px', '-50px', '-50px', '-50px'];
-        this.posicionPokemonsY = ['50px', '50px', '50px', '50px', '50px', '50px', '50px'];
-        console.log("posición final" + this.posicionPokemonsX);
-         */
     this.bienvenida = false;
 
-    for (let i = 0; i <= 7; ++i) { /* numero de movimientos */
+    for (let i = 0; i <= 7; ++i) { /* numero de movimientos de cada pokemon */
       setTimeout(() => {
-        for (let j = 0; j <= 4; ++j) { /* this.pokeindex.length */
+        for (let j = 0; j <= 4; ++j) { /* J = al número de pokemons que quieres que se muevan */
 
           setTimeout(() => {
 
@@ -56,17 +51,15 @@ export class AppComponent {
             this.pokemonScale[j] = top / window.innerHeight;
             console.log(this.posicionPokemonsX);
 
-
-          }, 500 * j);
+          }, 500 * j); /* tiempo de un movimiento a el de el siguiente */
         }
 
         this.faseDos = true;
-        console.log(this.posicionPokemonsX);
 
       }, 2500 * i)
-      /* setInterval(this.empezar, 1000);  *//* soy un terrorista, seguro que hay formas mejores */
     }
-    setTimeout(() => {
+
+    setTimeout(() => { /* aparición del teamRocket */
       this.velocidadTransicion = "8000ms";
       this.pokedex = false;
       for (let i = 0; i <= this.pokeindex.length; ++i) {
@@ -85,32 +78,20 @@ export class AppComponent {
 
   ngOnInit() {
 
-    /*   const top = Math.floor(Math.random() * (window.innerHeight - 500));
-      const left = Math.floor(Math.random() * window.innerWidth);
-    
-      const div = document.getElementById('PokeMovimiento')!; // Operador de afirmación no nula
-    
-      div.style.top = `${top}px`;
-      div.style.left = `${left}px`;
-      div.style.scale = `${top / window.innerHeight}`;
-    
-      setInterval(this.ngOnInit, 1000);  *//* soy un terrorista, seguro que hay formas mejores */
-
-
-    for (let i = 0; i <= 6; i++) { /* respuesta.results.length  */
-      var numeroAleatorio = Math.floor(Math.random() * (150));
+    for (let i = 0; i <= 7; i++) { /* Con esto genero Pokemons aleatorios. Añado algunos más, para incluirlos en el cuestionario */
+      var numeroAleatorio = Math.floor(Math.random() * (150)); /* en este caso son 150 Pokemons los que queremos indexar. Pero se pueden muchísimos más */
       this.pokeindex[i] = numeroAleatorio;
 
     }
     /*  console.log(this.URL_LISTA_POKEMON); */
 
-    // http.get nos devuelve una peticion asincrona (no sabemos cuando se ejecuta)
+    // http.get nos devuelve una peticion asíncrona (no sabemos cuando se ejecuta)
     const peticionGet = this.http.get(this.URL_LISTA_POKEMON);
 
     // nos suscribimos a ella pasandole la funcion que queremos ejecutar cuando se resuelva (ahora o en 1 año)
     peticionGet.subscribe((respuesta: any) => {
 
-      for (let i = 0; i <= 7; i++) { /* respuesta.results.length  */
+      for (let i = 0; i <= respuesta.results.length; i++) { /* respuesta.results.length  */
         const url = respuesta.results[this.pokeindex[i]].url;
 
 
@@ -149,10 +130,10 @@ export class AppComponent {
     this.fases = n;
 
   }
-  eleccion(acierto : boolean){
-   if (acierto) {
-     window.alert("acertaste")
+  eleccion(acierto: boolean) {
+    if (acierto) {
+      window.alert("acertaste")
     }
-    else {window.alert("pienso para Picachus!")}
+    else { window.alert("pienso para Pikachus!") }
   }
 }
