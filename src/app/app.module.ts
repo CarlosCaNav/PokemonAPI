@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
+import { HttpClientModule } from '@angular/common/http'; /* Importado aquí y en el AppComponent */
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { PokedexComponent } from './pokedex/pokedex.component';
     PokedexComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

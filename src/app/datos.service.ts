@@ -15,15 +15,32 @@ export class DatosService {
   listaPokemonsCuestionario: Pokemon[] = [];
 
 
-  ngOnInit() {
+
+  ejecutar() {
 
     for (var i = 0; i <= 3; ++i) {
+      if (this.listaPokemonsVisibles[i].nombre = undefined){
+        this.listaPokemonsVisibles[i].nombre = "holi"
+      }
       var numeroAleatorio = Math.floor(Math.random() * (150)); /* en este caso son 150 Pokemons los que queremos indexar. Pero se pueden muchísimos más */
       this.http.get(this.URL_LISTA_POKEMON)
         .subscribe((respuesta: any) => {
-          this.listaPokemonsVisibles[i].nombre = respuesta.results[numeroAleatorio].name.charAt(0).toUpperCase() + respuesta.results[numeroAleatorio].name.substring(1);
+          this.listaPokemonsVisibles[i].nombre = respuesta.results[numeroAleatorio]?.name.charAt(0).toUpperCase() + respuesta.results[numeroAleatorio]?.name.substring(1);
           
           console.log(this.listaPokemonsVisibles[i]);
+          
+        });
+    }
+    for (var i = 0; i <= 3; ++i) {
+      if (this.listaPokemonsCuestionario[i].nombre = undefined){
+        this.listaPokemonsCuestionario[i].nombre = "holi"
+      }
+      var numeroAleatorio = Math.floor(Math.random() * (150)); /* en este caso son 150 Pokemons los que queremos indexar. Pero se pueden muchísimos más */
+      this.http.get(this.URL_LISTA_POKEMON)
+        .subscribe((respuesta: any) => {
+          this.listaPokemonsCuestionario[i].nombre = respuesta.results[numeroAleatorio]?.name.charAt(0).toUpperCase() + respuesta.results[numeroAleatorio]?.name.substring(1);
+          
+          console.log(this.listaPokemonsCuestionario[i]);
           
         });
     }

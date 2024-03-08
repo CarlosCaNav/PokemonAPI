@@ -1,5 +1,5 @@
 export interface Pokemon {
-  nombre: string;
+  nombre: any;/* 
   url: string;
-  sonido: string;
+  sonido: string; */
 }
