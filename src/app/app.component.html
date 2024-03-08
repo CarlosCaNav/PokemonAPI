@@ -1,3 +1,5 @@
-{{DatosService.listaPokemonsVisibles[0]}}
+{{DatosService.listaPokemonsVisibles[0].nombre}}
 
-<button (click)="DatosService.ejecutar()">ejecutar</button>Parece que el ngOninit no furula en un servicio
+<div class="pokemon uno" [ngStyle]="{'background-image': DatosService.listaPokemonsVisibles[0].urlSprite}"></div>
+
+<button (click)="ejecutar()">ejecutar</button>Parece que el ngOninit no furula en un servicio
