@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DatosService } from './datos.service'; /* esto escrito a mano */
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PokeAPI';
+
+  constructor(public DatosService: DatosService) {} /* esto escrito a mano */
 }
+
