@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { DatosService } from './datos.service'; /* esto escrito a mano */
 import { Pokemon } from './pokemonsInterface'; /* escrito a mano */
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'PokeAPI';
 
@@ -15,9 +15,9 @@ export class AppComponent {
 
   ngOnInit() {
     this.DatosService.http.get(this.DatosService.URL_LISTA_POKEMON).subscribe((lista_pokemons: any) => {
-      this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.pokemonsVisibles, this.DatosService.listaPokemonsVisibles);
+      this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.numerosPokemonsVisibles, this.DatosService.listaPokemonsVisibles);
 
-      this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.pokemonsParaCuestionario, this.DatosService.listaPokemonsCuestionario);
+      this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.numerosPokemonsCuestionario, this.DatosService.listaPokemonsCuestionario);
     });
   }
 
@@ -25,7 +25,7 @@ export class AppComponent {
     var listaDeNumerosAleatorios: number[] = [];
 
     for (var i = 0; i <= numero_pokemons; ++i) {
-      var numeroAleatorio = Math.floor(Math.random() * this.DatosService.pokemonsTotales);
+      var numeroAleatorio = Math.floor(Math.random() * this.DatosService.numerosPokemonsTotales);
       listaDeNumerosAleatorios[i] = numeroAleatorio;
     }
 

@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Pokemon } from './pokemonsInterface'; /* escrito a mano */
 
-/* import { PokemonData } from './pokeDataInterface'; /* escrito a mano */
-
-
 @Injectable({
   providedIn: 'root',
 })
@@ -12,11 +9,13 @@ import { Pokemon } from './pokemonsInterface'; /* escrito a mano */
 export class DatosService {
 
   constructor(public http: HttpClient) { }
-  URL_LISTA_POKEMON: string = 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0';
+  numerosPokemonsTotales: number = 151;
 
-  pokemonsTotales: number = 150;
-  pokemonsVisibles: number = 3;
-  pokemonsParaCuestionario: number = 3;
+  URL_LISTA_POKEMON: string = `https://pokeapi.co/api/v2/pokemon?limit=${this.numerosPokemonsTotales}&offset=0`;
+
+  numerosPokemonsVisibles: number = 3;
   listaPokemonsVisibles: Pokemon[] = [];
+
+  numerosPokemonsCuestionario: number = 3;
   listaPokemonsCuestionario: Pokemon[] = [];
 }
