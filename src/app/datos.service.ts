@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Pokemon } from './pokemonsInterface'; /* escrito a mano */
+import { Pokemon, PokemonData } from './pokemonsInterface'; /* escrito a mano */
+
+/* import { PokemonData } from './pokeDataInterface'; /* escrito a mano */
 
 
 @Injectable({
@@ -18,6 +20,7 @@ export class DatosService {
   listaPokemonsVisibles: Pokemon[] = [];
   listaPokemonsCuestionario: Pokemon[] = [];
 
+  listaPokemonsData: PokemonData[] = [];
 
 
 }

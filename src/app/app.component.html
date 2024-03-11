@@ -1,5 +1,11 @@
 {{DatosService.listaPokemonsVisibles[0].nombre}}
 
-<div class="pokemon uno" [ngStyle]="{'background-image': DatosService.listaPokemonsVisibles[0].urlSprite}"></div>
+<div class="pokemon uno" [ngStyle]="{'background-image': DatosService.listaPokemonsData[0].urlSprite}"></div>
 
-<button (click)="ejecutar()">ejecutar</button>Parece que el ngOninit no furula en un servicio
+<button (click)="ejecutar()">ejecutar</button>
+<button (click)="ejecutar2()">ejecutar2</button>
+<!-- 
+<div class="pokemon uno" style="{'background-image': url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png)}"></div> 
+
+<img [src]=dittoImage alt="Ditto">
+ -->
