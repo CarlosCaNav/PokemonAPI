@@ -1,9 +1,8 @@
 export interface Pokemon {
   nombre: string;
-  numeroPokemon: number;
-  url: string;
-}
-export interface PokemonData {
+  indice: number;
   urlSprite: string;
   sonido: string;
+  peso: number;
+  altura: number;
 }

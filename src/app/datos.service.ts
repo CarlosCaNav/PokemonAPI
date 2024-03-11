@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Pokemon, PokemonData } from './pokemonsInterface'; /* escrito a mano */
+import { Pokemon } from './pokemonsInterface'; /* escrito a mano */
 
 /* import { PokemonData } from './pokeDataInterface'; /* escrito a mano */
 
@@ -19,8 +19,4 @@ export class DatosService {
   pokemonsParaCuestionario: number = 3;
   listaPokemonsVisibles: Pokemon[] = [];
   listaPokemonsCuestionario: Pokemon[] = [];
-
-  listaPokemonsData: PokemonData[] = [];
-
-
 }

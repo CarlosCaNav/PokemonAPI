@@ -1,11 +1,23 @@
-{{DatosService.listaPokemonsVisibles[0].nombre}}
+<!-- {{DatosService.listaPokemonsVisibles[0].nombre}} -->
 
-<div class="pokemon uno" [ngStyle]="{'background-image': DatosService.listaPokemonsData[0].urlSprite}"></div>
+<!-- <div class="pokemon uno" [ngStyle]="{'background-image': DatosService.listaPokemonsData[0].urlSprite}"></div> -->
 
-<button (click)="ejecutar()">ejecutar</button>
-<button (click)="ejecutar2()">ejecutar2</button>
-<!-- 
-<div class="pokemon uno" style="{'background-image': url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png)}"></div> 
+<!-- <img *ngIf="DatosService.listaPokemonsVisibles[0]" [src]="DatosService.listaPokemonsVisibles[0].urlSprite"
+    class="pokemon uno"> -->
 
-<img [src]=dittoImage alt="Ditto">
- -->
+
+<div *ngFor="let pokemon of DatosService.listaPokemonsVisibles">
+    <img [src]="pokemon.urlSprite" class="pokemon uno">
+</div>
+
+<p>-------------</p>
+
+<div *ngFor="let pokemon of DatosService.listaPokemonsCuestionario">
+    <img [src]="pokemon.urlSprite" class="pokemon uno">
+</div>
+
+<!-- <button (click)="ejecutar()">ejecutar</button> -->
+
+<!-- <div class="pokemon uno" style="{'background-image': url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png)}"></div>  -->
+
+<!-- <img [src]=dittoImage alt="Ditto"> -->

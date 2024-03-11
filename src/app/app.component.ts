@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DatosService } from './datos.service'; /* esto escrito a mano */
+import { Pokemon } from './pokemonsInterface'; /* escrito a mano */
 
 
 @Component({
@@ -12,59 +13,45 @@ export class AppComponent {
 
   constructor(public DatosService: DatosService) { } /* esto escrito a mano */
 
-  ejecutar() {
-    var listaDeNumerosAleatorios: number[] = [];
-    var listaDeNumerosAleatoriosCuestionario: number[] = [];
+  ngOnInit() {
+    this.DatosService.http.get(this.DatosService.URL_LISTA_POKEMON).subscribe((lista_pokemons: any) => {
+      this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.pokemonsVisibles, this.DatosService.listaPokemonsVisibles);
 
-    for (var i = 0; i <= this.DatosService.pokemonsVisibles; ++i) {
-      var numeroAleatorio = Math.floor(Math.random() * (this.DatosService.pokemonsTotales));
-      listaDeNumerosAleatorios[i] = numeroAleatorio;
-    }
-    for (var i = 0; i <= this.DatosService.pokemonsParaCuestionario; ++i) {
-      var numeroAleatorio = Math.floor(Math.random() * (this.DatosService.pokemonsTotales));
-      listaDeNumerosAleatoriosCuestionario[i] = numeroAleatorio;
-    }
-
-    this.DatosService.http.get(this.DatosService.URL_LISTA_POKEMON).subscribe((respuesta: any) => {
-      for (var i = 0; i <= this.DatosService.pokemonsVisibles; ++i) {
-       /*  respuesta.results[listaDeNumerosAleatorios[i]].url */
-
-
-        this.DatosService.listaPokemonsVisibles[i] = {
-          nombre: respuesta.results[listaDeNumerosAleatorios[i]]?.name.charAt(0).toUpperCase() + respuesta.results[listaDeNumerosAleatorios[i]]?.name.substring(1),
-          numeroPokemon: listaDeNumerosAleatorios[i],
-          url: respuesta.results[listaDeNumerosAleatorios[i]]?.url,
-        };
-
-        console.log(this.DatosService.listaPokemonsVisibles[i]);
-
-        console.log(listaDeNumerosAleatorios[i]);
-      }
-      for (var i = 0; i <= this.DatosService.pokemonsParaCuestionario; ++i) {
-        this.DatosService.listaPokemonsCuestionario[i] = {
-          nombre: respuesta.results[listaDeNumerosAleatoriosCuestionario[i]]?.name.charAt(0).toUpperCase() + respuesta.results[listaDeNumerosAleatoriosCuestionario[i]]?.name.substring(1),
-          numeroPokemon: listaDeNumerosAleatoriosCuestionario[i],
-          url: respuesta.results[listaDeNumerosAleatoriosCuestionario[i]]?.url,
-        };
-
-        console.log(this.DatosService.listaPokemonsVisibles[i]);
-
-        // console.log(listaDeNumerosAleatorios[i]);
-      }
+      this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.pokemonsParaCuestionario, this.DatosService.listaPokemonsCuestionario);
     });
   }
-  ejecutar2() {
-    const mecagoEnDios = this.DatosService.listaPokemonsVisibles[0].url;
 
-    this.DatosService.http.get(mecagoEnDios).subscribe((data: any) => {
-        this.DatosService.listaPokemonsData[0] = {
-          urlSprite: data.results[0].sprites.front_default,
-          sonido: "",
-        }
+  pedirYGuardarPokemons(lista_pokemons: any, numero_pokemons: number, listaAGuardar: Pokemon[]) {
+    var listaDeNumerosAleatorios: number[] = [];
 
+    for (var i = 0; i <= numero_pokemons; ++i) {
+      var numeroAleatorio = Math.floor(Math.random() * this.DatosService.pokemonsTotales);
+      listaDeNumerosAleatorios[i] = numeroAleatorio;
+    }
+
+    for (var i = 0; i <= numero_pokemons; ++i) {
+
+      const indice = listaDeNumerosAleatorios[i];
+      const url: string = lista_pokemons.results[indice]?.url;
+
+      this.DatosService.http.get(url).subscribe((pokemon: any) => {
+
+        const pokemonInterfaz: Pokemon = {
+          nombre: pokemon.name.charAt(0).toUpperCase() + pokemon.name.substring(1),
+          indice: indice,
+          urlSprite: pokemon.sprites.front_default,
+          sonido: pokemon.cries.latest,
+          peso: pokemon.weight / 10, // kg
+          altura: pokemon.height * 10, // cm
+        };
+
+        listaAGuardar.push(pokemonInterfaz);
       });
-      console.log(this.DatosService.listaPokemonsVisibles[0].url);
-      console.log(this.DatosService.listaPokemonsData[0].urlSprite);
+    }
+
+    console.log(listaAGuardar);
   }
+
 }
+
 
