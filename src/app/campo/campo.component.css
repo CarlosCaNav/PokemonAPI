@@ -1,0 +1,7 @@
+.pokemon {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    transition: margin-left 2000ms, margin-top 2000ms, scale 2000ms;
+    /*     border: 2px solid black; */
+}

@@ -13,15 +13,15 @@ export class AppComponent {
 
   constructor(public DatosService: DatosService) { } /* esto escrito a mano */
 
-  ngOnInit() {
-    this.DatosService.http.get(this.DatosService.URL_LISTA_POKEMON).subscribe((lista_pokemons: any) => {
+ async ngOnInit() {
+  await this.DatosService.http.get(this.DatosService.URL_LISTA_POKEMON).subscribe((lista_pokemons: any) => {
       this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.numerosPokemonsVisibles, this.DatosService.listaPokemonsVisibles);
 
       this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.numerosPokemonsCuestionario, this.DatosService.listaPokemonsCuestionario);
     });
   }
 
-  pedirYGuardarPokemons(lista_pokemons: any, numero_pokemons: number, listaAGuardar: Pokemon[]) {
+  async pedirYGuardarPokemons(lista_pokemons: any, numero_pokemons: number, listaAGuardar: Pokemon[]) {
     var listaDeNumerosAleatorios: number[] = [];
 
     for (var i = 0; i <= numero_pokemons; ++i) {
@@ -34,12 +34,13 @@ export class AppComponent {
       const indice = listaDeNumerosAleatorios[i];
       const url: string = lista_pokemons.results[indice]?.url;
 
-      this.DatosService.http.get(url).subscribe((pokemon: any) => {
+      await this.DatosService.http.get(url).subscribe((pokemon: any) => {
 
         const pokemonInterfaz: Pokemon = {
           nombre: pokemon.name.charAt(0).toUpperCase() + pokemon.name.substring(1),
           indice: indice,
           urlSprite: pokemon.sprites.front_default,
+          urlSpriteBack: pokemon.sprites.back_default,
           sonido: pokemon.cries.latest,
           peso: pokemon.weight / 10, // kg
           altura: pokemon.height * 10, // cm
@@ -51,7 +52,5 @@ export class AppComponent {
 
     console.log(listaAGuardar);
   }
-
 }
-
 

@@ -1,9 +1,6 @@
-<div *ngFor="let pokemon of DatosService.listaPokemonsVisibles">
-    <img [src]="pokemon.urlSprite" class="pokemon uno">
+<div class="bienvenida" *ngIf="this.DatosService.emergente == 'bienvenida'"> 
+    Bienvenida
+    <button (click)="DatosService.cambioFaseYEmergente('campo', 'nada')" >siguiente fase</button>
 </div>
-
-<p>-------------</p>
-
-<div *ngFor="let pokemon of DatosService.listaPokemonsCuestionario">
-    <img [src]="pokemon.urlSprite" class="pokemon uno">
-</div>
+<app-pokedex *ngIf="this.DatosService.emergente == 'pokedex'"/>
+<app-campo *ngIf="this.DatosService.fase == 'campo'"/>
