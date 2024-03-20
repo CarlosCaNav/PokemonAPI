@@ -13,15 +13,15 @@ export class AppComponent {
 
   constructor(public DatosService: DatosService) { } /* esto escrito a mano */
 
- async ngOnInit() {
-  await this.DatosService.http.get(this.DatosService.URL_LISTA_POKEMON).subscribe((lista_pokemons: any) => {
+ ngOnInit() {
+  this.DatosService.http.get(this.DatosService.URL_LISTA_POKEMON).subscribe((lista_pokemons: any) => {
       this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.numerosPokemonsVisibles, this.DatosService.listaPokemonsVisibles);
 
       this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.numerosPokemonsCuestionario, this.DatosService.listaPokemonsCuestionario);
     });
   }
 
-  async pedirYGuardarPokemons(lista_pokemons: any, numero_pokemons: number, listaAGuardar: Pokemon[]) {
+  pedirYGuardarPokemons(lista_pokemons: any, numero_pokemons: number, listaAGuardar: Pokemon[]) {
     var listaDeNumerosAleatorios: number[] = [];
 
     for (var i = 0; i <= numero_pokemons; ++i) {
@@ -34,7 +34,7 @@ export class AppComponent {
       const indice = listaDeNumerosAleatorios[i];
       const url: string = lista_pokemons.results[indice]?.url;
 
-      await this.DatosService.http.get(url).subscribe((pokemon: any) => {
+      this.DatosService.http.get(url).subscribe((pokemon: any) => {
 
         const pokemonInterfaz: Pokemon = {
           nombre: pokemon.name.charAt(0).toUpperCase() + pokemon.name.substring(1),

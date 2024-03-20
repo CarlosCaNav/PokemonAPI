@@ -60,7 +60,7 @@ export class CampoComponent {
 
             }, 500 * j); /* tiempo de un movimiento al del siguiente */
           }
-        }, 2000 * i)
+        }, 2000 * i);
       }
 
      }
