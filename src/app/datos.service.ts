@@ -23,14 +23,14 @@ export class DatosService {
   fase: string = "bienvenida";
   emergente: string = "bienvenida";
 
-  cambioFaseYEmergente(fase: string, emergente: string){
+  cambioFaseYEmergente(fase: string, emergente: string) {
     this.fase = fase;
     this.emergente = emergente;
   }
-  cambioFase(fase: string){
+  cambioFase(fase: string) {
     this.fase = fase;
   }
-  cambioEmergente(emergente: string){
+  cambioEmergente(emergente: string) {
     this.emergente = emergente;
   }
 }

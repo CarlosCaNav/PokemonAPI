@@ -1,5 +1,6 @@
 <div class="bienvenida" *ngIf="this.DatosService.emergente == 'bienvenida'"> 
-    Bienvenida
+    Holi caracoli. Este será un lugar estupendo para observar y aprender sobre Pokemons.
+    Pulsa sobre un Pokemon para aprender sobre el.<br><br>
     <button (click)="DatosService.cambioFaseYEmergente('campo', 'nada')" >siguiente fase</button>
 </div>
 <app-pokedex *ngIf="this.DatosService.emergente == 'pokedex'"/>
