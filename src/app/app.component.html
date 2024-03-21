@@ -1,9 +1,7 @@
-<div *ngFor="let pokemon of DatosService.listaPokemonsVisibles">
-    <img [src]="pokemon.urlSprite" class="pokemon uno">
+<div class="bienvenida" *ngIf="this.DatosService.emergente == 'bienvenida'"> 
+    Holi caracoli. Este será un lugar estupendo para observar y aprender sobre Pokemons.
+    Pulsa sobre un Pokemon para aprender sobre el.<br><br>
+    <button (click)="DatosService.cambioFaseYEmergente('campo', 'nada')" >siguiente fase</button>
 </div>
-
-<p>-------------</p>
-
-<div *ngFor="let pokemon of DatosService.listaPokemonsCuestionario">
-    <img [src]="pokemon.urlSprite" class="pokemon uno">
-</div>
+<app-pokedex *ngIf="this.DatosService.emergente == 'pokedex'"/>
+<app-campo *ngIf="this.DatosService.fase == 'campo'"/>
