@@ -1,4 +1,6 @@
-<div class="pokemon" [ngStyle]="pokemones[0]"></div>
-<div class="pokemon" [ngStyle]="pokemones[1]"></div>
-<div class="pokemon" [ngStyle]="pokemones[2]"></div>
-<div class="pokemon" [ngStyle]="pokemones[3]"></div>
+<div class="fondo">
+<div class="pokemon" [ngStyle]="pokemones[0]" (click)="pokemonObservado(0)"></div>
+<div class="pokemon" [ngStyle]="pokemones[1]" (click)="pokemonObservado(1)"></div>
+<div class="pokemon" [ngStyle]="pokemones[2]" (click)="pokemonObservado(2)"></div>
+<div class="pokemon" [ngStyle]="pokemones[3]" (click)="pokemonObservado(3)"></div>
+</div>

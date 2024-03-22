@@ -1,1 +1,5 @@
-<p>pokedex works!</p>
+<div class="pokedex">
+    <div class="pokemon" [ngStyle]="{'background-image': this.DatosService.pokemonMostrado[0]}"></div>
+    <div class="info">Nombre: {{this.DatosService.pokemonMostrado[1]}}</div>
+    <div class="bCerrar" (click)="DatosService.cambioEmergente('nada')">Cerrar</div>
+</div>

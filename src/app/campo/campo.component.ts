@@ -62,7 +62,12 @@ export class CampoComponent {
           }
         }, 2000 * i);
       }
-
      }
+  }
+
+  pokemonObservado(numero:number){
+    this.DatosService.emergente = "pokedex";
+    this.DatosService.pokemonMostrado[0] = "url(" + this.DatosService.listaPokemonsVisibles[numero].urlSprite  + ")";
+    this.DatosService.pokemonMostrado[1] = this.DatosService.listaPokemonsVisibles[numero].nombre ;
   }
 }

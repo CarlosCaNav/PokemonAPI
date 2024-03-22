@@ -19,9 +19,10 @@ export class DatosService {
   numerosPokemonsCuestionario: number = 3;
   listaPokemonsCuestionario: Pokemon[] = [];
 
-
   fase: string = "bienvenida";
   emergente: string = "bienvenida";
+
+  pokemonMostrado: Array<string>=["url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png)"];
 
   cambioFaseYEmergente(fase: string, emergente: string) {
     this.fase = fase;

@@ -1,0 +1,50 @@
+.pokedex{
+    position: fixed;
+    z-index: 3;
+    margin-top: calc(50vh - 260px);
+    margin-left: calc(50vw - 350px);
+    height: 520px;
+    width: 700px;
+/*     border: 2px solid black; */
+    background-image: url(../../../src/assets/Pokedex.png);
+}
+.pokemon{
+position: absolute;
+z-index: 4;
+height: 160px;
+width: 160px;
+margin-top: 155px;
+margin-left: 100px;
+background-size: 160px 160px;
+/* border: 3px solid red; */
+}
+
+.info{
+    position: absolute;
+    z-index: 4;
+    height: 140px;
+    width: 200px;
+    margin-top: 180px;
+    margin-left: 430px;
+    font-size: 30px;
+    font-family: Calculadora;
+    /* 
+    border: 3px solid red; */
+    }
+
+    @font-face {
+        font-family: Calculadora;
+        src: url("/assets/Calculator.ttf") format("opentype");
+    }
+    .bCerrar{
+        position: absolute;
+        z-index: 4;
+        height: 50px;
+        width: 100px;
+        margin-top: 420px;
+        margin-left: 500px;
+        background-color: blue;
+        /* border: 1px solid black; */
+        border-radius: 15px;
+        text-align: center;
+    }

@@ -5,9 +5,14 @@
 }
 .bienvenida{
     position: fixed;
-    margin-top: 15vh;
-    margin-left: 15vw;
-    height: 70vh;
-    width: 70vw;
+    margin-top: 25vh;
+    margin-left: 25vw;
+    height: 50vh;
+    width: 50vw;
     border: 2px solid black;
+    padding: 20px;
+    background-color: beige;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px;
+    font-size: 30px;
 }
