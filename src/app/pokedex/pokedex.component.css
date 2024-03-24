@@ -1,6 +1,6 @@
 .pokedex{
     position: fixed;
-    z-index: 3;
+    z-index: 3000;
     margin-top: calc(50vh - 260px);
     margin-left: calc(50vw - 350px);
     height: 520px;

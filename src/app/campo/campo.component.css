@@ -10,7 +10,18 @@
     position: absolute;
     height: 100px;
     width: 100px;
-    transition: margin-left 2000ms, margin-top 2000ms, scale 2000ms, transform 0.5s;
+    transition: margin-left 2000ms, margin-top 2000ms, scale 2000ms, transform 0.5s, z-index 2s;
     cursor: url(/assets/punkedex.png), auto;
     /* border: 2px solid black; */
+}
+.arbusto{
+    position: absolute;
+    z-index: 580;
+    margin-top: 500px;
+    margin-left: 400px;
+    height: 200px;
+    width: 500px;
+    background-image: url(/../../assets/arbusto.png);
+    background-size: 100% 100%;
+
 }

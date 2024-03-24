@@ -1,6 +1,13 @@
 <div class="bienvenida" *ngIf="this.DatosService.emergente == 'bienvenida'"> 
     Este será un lugar estupendo para observar y aprender sobre Pokemons.
     Pulsa sobre un Pokemon para aprender sobre el.<br><br>
+    <h3>El arbusto es un experimiento que actualmente sólo funciona en resolución 1080p. No lo tengas muy en cuenta </h3>
+    <br>
+    Tiempo de investigación <br>
+    {{DatosService.tiempodemovimiento}}s<br>
+    <button (click)="duracion(-5)">-</button>
+    <button (click)="duracion(5)">+</button>
+    <br><br>
     <button (click)="DatosService.cambioFaseYEmergente('campo', 'nada')" >siguiente fase</button>
 </div>
 <!--  <app-pokedex> -->

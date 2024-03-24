@@ -52,5 +52,14 @@ export class AppComponent {
 
     console.log(listaAGuardar);
   }
+  duracion(tiempo : number){
+    this.DatosService.tiempodemovimiento += tiempo;
+    if (this.DatosService.tiempodemovimiento >= 61) {
+      this.DatosService.tiempodemovimiento = 60
+    }
+    else if (this.DatosService.tiempodemovimiento <= 14){
+      this.DatosService.tiempodemovimiento = 15
+    }
+  }
 }
 
