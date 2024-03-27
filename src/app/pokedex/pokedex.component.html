@@ -1,5 +1,7 @@
-<div class="pokedex">
-    <div class="pokemon" [ngStyle]="{'background-image': this.DatosService.pokemonMostrado[0]}"></div>
-    <div class="info">Nombre: {{this.DatosService.pokemonMostrado[1]}}</div>
-    <div class="bCerrar" (click)="DatosService.cambioEmergente('nada')">Cerrar</div>
+<div class="fondo" (click)="DatosService.cambioEmergente('nada')">
+    <div class="pokedex">
+        <div class="pokemon" [ngStyle]="{'background-image': this.DatosService.pokemonMostrado[0]}"></div>
+        <div class="info"><b> Nombre: {{this.DatosService.pokemonMostrado[1]}} </b></div>
+        <!-- <div class="bCerrar" (click)="DatosService.cambioEmergente('nada')">Cerrar</div> -->
+    </div>
 </div>

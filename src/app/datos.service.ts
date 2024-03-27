@@ -20,7 +20,7 @@ export class DatosService {
   numerosPokemonsCuestionario: number = 3;
   listaPokemonsCuestionario: Pokemon[] = [];
 
-  fase: string = "nada";
+  fase: string = "teamRocket";
   emergente: string = "bienvenida"; /* bienvenida */
 
   pokemonMostrado: Array<string>=["url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png)"];

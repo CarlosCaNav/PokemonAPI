@@ -1,15 +1,19 @@
-<div class="bienvenida" *ngIf="this.DatosService.emergente == 'bienvenida'"> 
-    Este será un lugar estupendo para observar y aprender sobre Pokemons.
-    Pulsa sobre un Pokemon para aprender sobre el.<br><br>
-    <h3>El arbusto es un experimiento que actualmente sólo funciona en resolución 1080p. No lo tengas muy en cuenta </h3>
-    <br>
-    Tiempo de investigación <br>
-    {{DatosService.tiempodemovimiento}}s<br>
-    <button (click)="duracion(-5)">-</button>
-    <button (click)="duracion(5)">+</button>
-    <br><br>
-    <button (click)="DatosService.cambioFaseYEmergente('campo', 'nada')" >siguiente fase</button>
+<div class="fondo">
+
+    <div class="bienvenida" *ngIf="this.DatosService.emergente == 'bienvenida'">
+        <div class="contenido">
+            Este será un lugar estupendo para observar y aprender sobre Pokemons.<br><br>
+            Pulsa sobre un Pokemon para aprender sobre el.<br>
+
+            <br>
+            Tiempo de investigación: <br>
+            {{DatosService.tiempodemovimiento}}s<br>
+            <button class="boton duracion" (click)="duracion(-5)">-</button>
+            <button class="boton duracion" (click)="duracion(5)">+</button>
+            <button class="boton siguiente"
+                (click)="DatosService.cambioFaseYEmergente('campo', 'nada')">Investigar</button>
+        </div>
+    </div>
 </div>
-<!--  <app-pokedex> -->
-<app-pokedex *ngIf="this.DatosService.emergente == 'pokedex'"/>
-<app-campo *ngIf="this.DatosService.fase == 'campo'"/>
+<app-cuestionario *ngIf="this.DatosService.fase == 'cuestionario'"  />
+<app-campo *ngIf="this.DatosService.fase == 'campo'" />

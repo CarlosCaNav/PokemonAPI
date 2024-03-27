@@ -7,16 +7,16 @@ import { DatosService } from '../datos.service'; /* esto escrito a mano */
   styleUrls: ['./campo.component.css']
 })
 export class CampoComponent {
- 
+
   pokemones: Array<Record<string, string | number>> = [];
 
   constructor(public DatosService: DatosService) { /* lo de los paréntes escrito a mano */
 
     var anteriorX: Array<number> = [];
     var anteriorY: Array<number> = [];
-    var numeroDeMovimientos: number = Math.round(DatosService.tiempodemovimiento / (DatosService.numerosPokemonsVisibles + 1));
     var duracionMovimiento: number = 500;
-    var duracionBucle: number = duracionMovimiento * DatosService.numerosPokemonsVisibles;
+    var duracionBucle: number = duracionMovimiento * (DatosService.numerosPokemonsVisibles + 1);
+    var numeroDeMovimientos: number = Math.round(DatosService.tiempodemovimiento / (DatosService.numerosPokemonsVisibles + 1) * (1000 / duracionMovimiento));
 
 
     if (DatosService.fase == "campo") {
@@ -28,6 +28,7 @@ export class CampoComponent {
 
               const top = Math.floor(Math.random() * (window.innerHeight - 400 + 1) + 200);
               const left = Math.floor(Math.random() * (window.innerWidth - 200));
+              const z = Math.round(window.innerHeight * 10 / top)
 
               let sprite = '';
               let direccion = '';
@@ -58,7 +59,7 @@ export class CampoComponent {
                 'scale': top / window.innerHeight * 3,
                 'background-image': sprite,
                 'transform': direccion,
-                'z-index': top,
+                /* 'z-index': z, */
               };
 
               /* this.pokemones[j]['scale'] = 2; pa saber yo a usar mapas */
@@ -67,12 +68,29 @@ export class CampoComponent {
           }
         }, duracionBucle * i);
       }
-     }
+      setTimeout(() => {
+        DatosService.emergente = "teamRocket";
+        for (let i = 0; i <= DatosService.numerosPokemonsVisibles + 1; ++i)
+          this.pokemones[i] = {
+            'margin-left': "-500px",
+            'margin-top': window.innerHeight / 2 + "px",
+            'scale': window.innerHeight / 2 / window.innerHeight * 3,
+            'background-image': "url(" + DatosService.listaPokemonsVisibles[i].urlSprite + ")",
+            'transform': "scaleX(1)",
+            'transition': "margin-left 10s, margin-top 10s, scale 10s",
+          };
+      }, DatosService.tiempodemovimiento * 1000 + 3000)
+
+      setTimeout(() => {
+        DatosService.fase = "cuestionario";
+      }, DatosService.tiempodemovimiento * 1000 + 11000)
+    }
   }
 
-  pokemonObservado(numero:number){
+  pokemonObservado(numero: number) {
     this.DatosService.emergente = "pokedex";
-    this.DatosService.pokemonMostrado[0] = "url(" + this.DatosService.listaPokemonsVisibles[numero].urlSprite  + ")";
-    this.DatosService.pokemonMostrado[1] = this.DatosService.listaPokemonsVisibles[numero].nombre ;
+    this.DatosService.pokemonMostrado[0] = "url(" + this.DatosService.listaPokemonsVisibles[numero].urlSprite + ")";
+    this.DatosService.pokemonMostrado[1] = this.DatosService.listaPokemonsVisibles[numero].nombre;
   }
+
 }

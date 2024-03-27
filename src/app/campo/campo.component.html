@@ -11,5 +11,6 @@
     <div class="pokemon" [ngIf]="DatosService.numerosPokemonsVisibles >= 7" [ngStyle]="pokemones[6]" (click)="pokemonObservado(3)"></div>
     <div class="pokemon" [ngIf]="DatosService.numerosPokemonsVisibles >= 8" [ngStyle]="pokemones[7]" (click)="pokemonObservado(3)"></div> -->
     
-    <div class="arbusto uno"></div>
+ <!--    <div class="arbusto uno"></div> -->
     </div>
+    <app-pokedex *ngIf="this.DatosService.emergente == 'pokedex'" />

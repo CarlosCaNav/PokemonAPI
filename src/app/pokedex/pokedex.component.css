@@ -1,25 +1,46 @@
-.pokedex{
-    position: fixed;
-    z-index: 3000;
-    margin-top: calc(50vh - 260px);
-    margin-left: calc(50vw - 350px);
-    height: 520px;
-    width: 700px;
-/*     border: 2px solid black; */
-    background-image: url(../../../src/assets/Pokedex.png);
-}
-.pokemon{
-position: absolute;
-z-index: 4;
-height: 160px;
-width: 160px;
-margin-top: 155px;
-margin-left: 100px;
-background-size: 160px 160px;
-/* border: 3px solid red; */
+.fondo {
+    z-index: 1;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
-.info{
+.pokedex {
+    z-index: 3;
+    position: absolute;
+    height: 520px;
+    width: 700px;
+    /*     border: 2px solid black; */
+    background-image: url(../../../src/assets/Pokedex.png);
+    animation-name: aparicion;
+    animation-duration: 0.5s;
+}
+
+.pokemon {
+    position: absolute;
+    z-index: 4;
+    height: 160px;
+    width: 160px;
+    margin-top: 155px;
+    margin-left: 100px;
+    background-size: 160px 160px;
+    animation: pokemon 5s infinite;
+    animation-timing-function: linear;
+    /* border: 3px solid red; */
+}
+@keyframes pokemon {
+    0% {margin-top: 155px; margin-left: 95px}
+    25%{margin-top: 160px; margin-left: 100px;}
+    50% {margin-top: 155px; margin-left: 105px}
+    75%{margin-top: 160px; margin-left: 100px;}
+    100% {margin-top: 155px; margin-left: 95px}
+}
+
+.info {
     position: absolute;
     z-index: 4;
     height: 140px;
@@ -28,23 +49,33 @@ background-size: 160px 160px;
     margin-left: 430px;
     font-size: 30px;
     font-family: Calculadora;
-    /* 
+    color: rgb(0, 58, 0);
+        /* 
     border: 3px solid red; */
-    }
+}
 
-    @font-face {
-        font-family: Calculadora;
-        src: url("/assets/Calculator.ttf") format("opentype");
-    }
-    .bCerrar{
-        position: absolute;
-        z-index: 4;
-        height: 50px;
-        width: 100px;
-        margin-top: 420px;
-        margin-left: 500px;
-        background-color: blue;
-        /* border: 1px solid black; */
-        border-radius: 15px;
-        text-align: center;
-    }
+@font-face {
+    font-family: Calculadora;
+    src: url("/assets/Calculator.ttf") format("opentype");
+}
+
+.bCerrar {
+    position: absolute;
+    z-index: 4;
+    height: 50px;
+    width: 100px;
+    margin-top: 420px;
+    margin-left: 500px;
+    background-color: blue;
+    /* border: 1px solid black; */
+    border-radius: 15px;
+    text-align: center;
+}
+.bCerrar:hover{
+animation-name: aparicion;
+}
+@keyframes aparicion {
+    0% {scale: 0;}
+    50%{scale: 1.1;}
+    100%{scale: 1;}
+}
