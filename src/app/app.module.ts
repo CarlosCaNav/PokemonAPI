@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
-import { HttpClientModule } from '@angular/common/http'; /* Importado aquí y en el AppComponent */
+import { HttpClientModule } from '@angular/common/http';
+import { CampoComponent } from './campo/campo.component'; /* Importado aquí y en el AppComponent */
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokedexComponent
+    PokedexComponent,
+    CampoComponent
   ],
   imports: [
     BrowserModule,

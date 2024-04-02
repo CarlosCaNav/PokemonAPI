@@ -3,3 +3,11 @@
     width: 100px;
     border: 2px solid black;
 }
+.bienvenida{
+    position: fixed;
+    margin-top: 15vh;
+    margin-left: 15vw;
+    height: 70vh;
+    width: 70vw;
+    border: 2px solid black;
+}

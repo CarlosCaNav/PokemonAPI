@@ -18,4 +18,19 @@ export class DatosService {
 
   numerosPokemonsCuestionario: number = 3;
   listaPokemonsCuestionario: Pokemon[] = [];
+
+
+  fase: string = "bienvenida";
+  emergente: string = "bienvenida";
+
+  cambioFaseYEmergente(fase: string, emergente: string) {
+    this.fase = fase;
+    this.emergente = emergente;
+  }
+  cambioFase(fase: string) {
+    this.fase = fase;
+  }
+  cambioEmergente(emergente: string) {
+    this.emergente = emergente;
+  }
 }

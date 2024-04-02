@@ -13,8 +13,8 @@ export class AppComponent {
 
   constructor(public DatosService: DatosService) { } /* esto escrito a mano */
 
-  ngOnInit() {
-    this.DatosService.http.get(this.DatosService.URL_LISTA_POKEMON).subscribe((lista_pokemons: any) => {
+ ngOnInit() {
+  this.DatosService.http.get(this.DatosService.URL_LISTA_POKEMON).subscribe((lista_pokemons: any) => {
       this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.numerosPokemonsVisibles, this.DatosService.listaPokemonsVisibles);
 
       this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.numerosPokemonsCuestionario, this.DatosService.listaPokemonsCuestionario);
@@ -40,6 +40,7 @@ export class AppComponent {
           nombre: pokemon.name.charAt(0).toUpperCase() + pokemon.name.substring(1),
           indice: indice,
           urlSprite: pokemon.sprites.front_default,
+          urlSpriteBack: pokemon.sprites.back_default,
           sonido: pokemon.cries.latest,
           peso: pokemon.weight / 10, // kg
           altura: pokemon.height * 10, // cm
@@ -51,7 +52,5 @@ export class AppComponent {
 
     console.log(listaAGuardar);
   }
-
 }
-
 
