@@ -4,13 +4,5 @@
     <div class="pokemon" [ngStyle]="pokemones[1]" (click)="pokemonObservado(1)"></div>
     <div class="pokemon" [ngStyle]="pokemones[2]" (click)="pokemonObservado(2)"></div>
     <div class="pokemon" [ngStyle]="pokemones[3]" (click)="pokemonObservado(3)"></div>
-    <!-- Tengo que descubrir por qué no funciona el ngIF -->
-    <!-- 
-    <div class="pokemon" [ngIf]="DatosService.numerosPokemonsVisibles >= 5" [ngStyle]="pokemones[4]" (click)="pokemonObservado(3)"></div>
-    <div class="pokemon" [ngIf]="DatosService.numerosPokemonsVisibles >= 6" [ngStyle]="pokemones[5]" (click)="pokemonObservado(3)"></div>
-    <div class="pokemon" [ngIf]="DatosService.numerosPokemonsVisibles >= 7" [ngStyle]="pokemones[6]" (click)="pokemonObservado(3)"></div>
-    <div class="pokemon" [ngIf]="DatosService.numerosPokemonsVisibles >= 8" [ngStyle]="pokemones[7]" (click)="pokemonObservado(3)"></div> -->
-    
- <!--    <div class="arbusto uno"></div> -->
     </div>
     <app-pokedex *ngIf="this.DatosService.emergente == 'pokedex'" />

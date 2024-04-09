@@ -17,7 +17,7 @@
 .contenido {
     margin: 50px;
     text-align: justify;
-    
+
 }
 
 .bienvenida {
@@ -31,10 +31,19 @@
     animation-name: entrada;
     animation-duration: 0.5s;
 }
-@keyframes entrada{
-    0% {scale: 0;}
-    50%{scale: 1.05;}
-    100%{scale: 1;}
+
+@keyframes entrada {
+    0% {
+        scale: 0;
+    }
+
+    50% {
+        scale: 1.05;
+    }
+
+    100% {
+        scale: 1;
+    }
 
 }
 
@@ -46,13 +55,15 @@
     background-color: rgb(243, 243, 195);
     box-shadow: 2px 2px 4px rgb(112, 112, 112), inset 0px 0px 2px 1px;
     border: inherit;
-    }
-    .boton:hover{
-        box-shadow: 2px 2px 4px rgb(20, 20, 20), inset 0px 0px 2px 1px;
-    }
-    .boton:active{
+}
+
+.boton:hover {
+    box-shadow: 2px 2px 4px rgb(20, 20, 20), inset 0px 0px 2px 1px;
+}
+
+.boton:active {
     height: 24px;
-    }
+}
 
 .siguiente {
     margin-left: 350px;
