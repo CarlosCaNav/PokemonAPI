@@ -14,14 +14,16 @@ export class DatosService {
   URL_LISTA_POKEMON: string = `https://pokeapi.co/api/v2/pokemon?limit=${this.numerosPokemonsTotales}&offset=0`;
 
   numerosPokemonsVisibles: number = 3;
+  segundosDeInvestigacion: number = 30;
   listaPokemonsVisibles: Pokemon[] = [];
 
   numerosPokemonsCuestionario: number = 3;
   listaPokemonsCuestionario: Pokemon[] = [];
 
+  fase: string = "teamRocket";
+  emergente: string = "bienvenida"; /* bienvenida */
 
-  fase: string = "bienvenida";
-  emergente: string = "bienvenida";
+  pokemonMostrado: number = 0;
 
   cambioFaseYEmergente(fase: string, emergente: string) {
     this.fase = fase;

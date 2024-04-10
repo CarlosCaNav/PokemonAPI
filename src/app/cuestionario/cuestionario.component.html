@@ -1,0 +1,12 @@
+<div class="fondo">
+    <div class="cuestionario" *ngIf="this.DatosService.emergente == 'teamRocket'">
+        Holi
+        <button (click)="DatosService.cambioEmergente('pregunta1')">siguiente</button>
+    </div>
+    <div class="cuestionario" *ngIf="this.DatosService.emergente == 'pregunta1'">
+        <div class="imagen" [ngClass]="'; background-image: ' + this.DatosService.listaPokemonsVisibles[0].urlSprite">holi</div>
+        <ul>
+            <li *ngFor="let pregunta of preguntaNombre"><button (click)="respuesta(pregunta)">{{pregunta}}</button></li>
+        </ul>
+    </div>
+</div>

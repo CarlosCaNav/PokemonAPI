@@ -1,1 +1,13 @@
-<p>pokedex works!</p>
+<div class="fondo" (click)="DatosService.cambioEmergente('nada')">
+    <div class="pokedex">
+
+        <div class="pokemon"
+            [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[this.DatosService.pokemonMostrado].urlSprite} ">
+        </div>
+
+        <div class="info">
+            <b> Nombre:
+                {{this.DatosService.listaPokemonsVisibles[this.DatosService.pokemonMostrado].nombre}} </b></div>
+        <!-- <div class="bCerrar" (click)="DatosService.cambioEmergente('nada')">Cerrar</div> -->
+    </div>
+</div>

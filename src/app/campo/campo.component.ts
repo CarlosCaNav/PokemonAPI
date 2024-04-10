@@ -7,41 +7,45 @@ import { DatosService } from '../datos.service'; /* esto escrito a mano */
   styleUrls: ['./campo.component.css']
 })
 export class CampoComponent {
- 
+
   pokemones: Array<Record<string, string | number>> = [];
 
   constructor(public DatosService: DatosService) { /* lo de los paréntes escrito a mano */
 
     var anteriorX: Array<number> = [];
     var anteriorY: Array<number> = [];
+    var msDuracionMovimiento: number = 500;
+    var msDuracionBucle: number = msDuracionMovimiento * (DatosService.numerosPokemonsVisibles + 1);
+    var numeroDeBucles: number = Math.round(DatosService.segundosDeInvestigacion * (1000 / msDuracionBucle))
 
     if (DatosService.fase == "campo") {
-      for (let i = 0; i <= 10; ++i) { /* numero de movimientos de cada pokemon */
+      for (let i = 0; i <= numeroDeBucles; ++i) {
         setTimeout(() => {
-          for (let j = 0; j <= 3; ++j) { /* J = al número de pokemons que quieres que se muevan */
+          for (let j = 0; j <= DatosService.numerosPokemonsVisibles; ++j) { /* J = al número de pokemons que quieres que se muevan */
 
             setTimeout(() => {
 
               const top = Math.floor(Math.random() * (window.innerHeight - 400 + 1) + 200);
               const left = Math.floor(Math.random() * (window.innerWidth - 200));
+              const z = Math.round(window.innerHeight * 10 / top)
 
               let sprite = '';
               let direccion = '';
 
               if (top >= anteriorY[j] && left >= anteriorX[j]) {
-                sprite = "url(" + DatosService.listaPokemonsVisibles[j].urlSprite + ")";
+                sprite = DatosService.listaPokemonsVisibles[j].urlSprite;
                 direccion = "scaleX(-1)";
               }
               else if (top < anteriorY[j] && left >= anteriorX[j]) {
-                sprite = "url(" + DatosService.listaPokemonsVisibles[j].urlSpriteBack + ")";
+                sprite = DatosService.listaPokemonsVisibles[j].urlSpriteBack;
                 direccion = "scaleX(1)";
               }
               else if (top >= anteriorY[j] && left < anteriorX[j]) {
-                sprite = "url(" + DatosService.listaPokemonsVisibles[j].urlSprite + ")";
+                sprite = DatosService.listaPokemonsVisibles[j].urlSprite;
                 direccion = "scaleX(1)";
               }
               else if (top < anteriorY[j] && left < anteriorX[j]) {
-                sprite = "url(" + DatosService.listaPokemonsVisibles[j].urlSpriteBack + ")";
+                sprite = DatosService.listaPokemonsVisibles[j].urlSpriteBack;
                 direccion = "scaleX(-1)";
               }
 
@@ -51,18 +55,39 @@ export class CampoComponent {
               this.pokemones[j] = {
                 'margin-left': left + "px",
                 'margin-top': top + "px",
-                'scale': top / window.innerHeight * 3,
+                'scale': top / window.innerHeight * 3 * (DatosService.listaPokemonsVisibles[j].altura + 500) * 0.002,
                 'background-image': sprite,
                 'transform': direccion,
+                /* 'z-index': z, */
               };
 
               /* this.pokemones[j]['scale'] = 2; pa saber yo a usar mapas */
 
-            }, 500 * j); /* tiempo de un movimiento al del siguiente */
+            }, msDuracionMovimiento * j);
           }
-        }, 2000 * i);
+        }, msDuracionBucle * i);
       }
+      setTimeout(() => {
+        DatosService.emergente = "teamRocket";
+        for (let i = 0; i <= DatosService.numerosPokemonsVisibles + 1; ++i)
+          this.pokemones[i] = {
+            'margin-left': "-500px",
+            'margin-top': window.innerHeight / 2 + "px",
+            'scale': window.innerHeight / 2 / window.innerHeight * 3,
+            'background-image': DatosService.listaPokemonsVisibles[i].urlSprite,
+            'transform': "scaleX(1)",
+            'transition': "margin-left 10s, margin-top 10s, scale 10s",
+          };
+      }, DatosService.segundosDeInvestigacion * 1000 + 3000)
 
-     }
+      setTimeout(() => {
+        DatosService.fase = "cuestionario";
+      }, DatosService.segundosDeInvestigacion * 1000 + 11000)
+    }
+  }
+
+  pokemonObservado(numero: number) {
+    this.DatosService.emergente = "pokedex";
+    this.DatosService.pokemonMostrado = numero;
   }
 }
