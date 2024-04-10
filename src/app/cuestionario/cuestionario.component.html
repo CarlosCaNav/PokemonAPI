@@ -1,34 +1,35 @@
 <div class="fondo">
     <div class="cuestionario" *ngIf="this.DatosService.emergente == 'teamRocket'">
-        Responde a las siguientes preguntas
-        <button (click)="DatosService.cambioEmergente('pregunta1')">siguiente</button>
+        <div class="rocket"> </div> ¡¡Estos pokemons no eran de nadie!! <br>
+         Demuéstranos que lo sabes tódo de ellos y los liberaremos. <br>Si no... haremos pienso para Pikachus con ellos!
+        <button class="boton siguiente" (click)="DatosService.cambioEmergente('pregunta1')">siguiente</button>
     </div>
     <div class="cuestionario" *ngIf="this.DatosService.emergente == 'pregunta1'">
         <div class="imagen" [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[0].urlSprite}"></div>
         Cómo se llama este bicho
         <ul>
-            <li *ngFor="let pregunta of preguntas['preguntaNombre'] "><button (click)="respuesta(pregunta.toString(), 1)">{{pregunta}}</button></li>
+            <li *ngFor="let pregunta of preguntas['preguntaNombre'] "><button class="boton" (click)="respuesta(pregunta.toString(), 1)">{{pregunta}}</button></li>
         </ul>
     </div>
     <div class="cuestionario" *ngIf="this.DatosService.emergente == 'pregunta2'">
-        <div class="imagen" [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[1].urlSprite}"></div>
+        <div class="imagen" [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[1].urlSprite, 'object-fit': 'cover'}"></div>
         Cuál es el peso medio de este bicho
         <ul>
-            <li *ngFor="let pregunta of preguntas['preguntaPeso']"><button (click)="respuesta(pregunta.toString(), 2)">{{pregunta}}</button></li>
+            <li *ngFor="let pregunta of preguntas['preguntaPeso']"><button class="boton" (click)="respuesta(pregunta.toString(), 2)">{{pregunta}}kg</button></li>
         </ul>
     </div>
     <div class="cuestionario" *ngIf="this.DatosService.emergente == 'pregunta3'">
         <div class="imagen" [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[2].urlSprite}"></div>
         Cómo se llama este bicho
         <ul>
-            <li *ngFor="let pregunta of preguntas['preguntaNombre']"><button (click)="respuesta(pregunta.toString(), 3)">{{pregunta}}</button></li>
+            <li *ngFor="let pregunta of preguntas['preguntaNombre']"><button class="boton" (click)="respuesta(pregunta.toString(), 3)">{{pregunta}}</button></li>
         </ul>
     </div>
     <div class="cuestionario" *ngIf="this.DatosService.emergente == 'pregunta4'">
         <div class="imagen" [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[3].urlSprite}"></div>
         Cuánto mide este bicho
         <ul>
-            <li *ngFor="let pregunta of preguntas['preguntaAltura']"><button (click)="respuesta(pregunta.toString(), 4)">{{pregunta}}</button></li>
+            <li *ngFor="let pregunta of preguntas['preguntaAltura']"><button class="boton" (click)="respuesta(pregunta.toString(), 4)">{{pregunta}}cm</button></li>
         </ul>
     </div>
     <div class="cuestionario" *ngIf="this.DatosService.emergente == 'pregunta5'">este es tu patético resultado {{respuestasUsuario}}</div>

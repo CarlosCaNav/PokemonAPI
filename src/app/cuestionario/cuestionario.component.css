@@ -13,7 +13,7 @@
 .cuestionario {
     position: absolute;
     z-index: 5;
-    height: 400px;
+    height: 500px;
     width: 600px;
     border: 2px solid black;
     background-color: beige;
@@ -22,11 +22,40 @@
     font-size: 30px;
     animation-name: entrada;
     animation-duration: 0.5s;
+    padding: 10px;
 }
 
 .imagen {
     margin-left: 250px;
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
+}
+.rocket{
+    margin: 10px 10px 10px;
+    height: 300px;
+    width: 580px;
+    border-radius: 10px;
     border: 2px solid black;
+    background-image: url(./../../assets/teamRocket.jpg);
+}
+.boton {
+    margin: 2px 2px 2px 2px;
+    height: 25px;
+    min-width: 25px;
+    border-radius: 100px;
+    background-color: rgb(243, 243, 195);
+    box-shadow: 2px 2px 4px rgb(112, 112, 112), inset 0px 0px 2px 1px;
+    border: inherit;
+}
+
+.boton:hover {
+    box-shadow: 2px 2px 4px rgb(20, 20, 20), inset 0px 0px 2px 1px;
+}
+
+.boton:active {
+    height: 24px;
+}
+
+.siguiente {
+    margin-left: 450px;
 }

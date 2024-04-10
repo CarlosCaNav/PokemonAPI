@@ -40,16 +40,16 @@ export class CuestionarioComponent {
     }
     for (var i = 0; i <= this.numeroDePreguntas - 1; ++i) {
       var lugarAleatorio = Math.floor(Math.random() * (this.numeroDeRespuestas));
-      if(i == 1){
+      if(i == 0){
       this.preguntas["preguntaNombre"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].nombre;
       }
-      else if(i == 2){
+      else if(i == 1){
       this.preguntas["preguntaPeso"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].peso.toString();
       }
-      else if(i == 3){
+      else if(i == 2){
       this.preguntas["preguntaNombre"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].nombre;
       }
-      else if(i == 4){
+      else if(i == 3){
       this.preguntas["preguntaAltura"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].altura.toString();
       }
       this.respuestasCorrectas[i] = lugarAleatorio;
