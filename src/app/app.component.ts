@@ -57,8 +57,8 @@ export class AppComponent {
     if (this.DatosService.segundosDeInvestigacion >= 60) {
       this.DatosService.segundosDeInvestigacion = 60
     }
-    else if (this.DatosService.segundosDeInvestigacion <= 15) {
-      this.DatosService.segundosDeInvestigacion = 15
+    else if (this.DatosService.segundosDeInvestigacion <= 5) {
+      this.DatosService.segundosDeInvestigacion = 5
     }
   }
 }
