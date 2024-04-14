@@ -1,4 +1,4 @@
-.fondo {
+.fondo { /* en la próxima actualización adaptaré todo a Flexbox */
     position: absolute;
     z-index: 1;
     height: 100vh;
@@ -26,9 +26,9 @@
 }
 
 .imagen {
-    margin-left: 250px;
-    height: 120px;
-    width: 120px;
+    margin-left: 274px;
+    height: 96px;
+    width: 96px;
 }
 .rocket{
     margin: 10px 10px 10px;

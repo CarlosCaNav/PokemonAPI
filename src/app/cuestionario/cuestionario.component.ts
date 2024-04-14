@@ -12,11 +12,12 @@ export class CuestionarioComponent {
   numeroDePreguntas: number = 4;
   numeroDeRespuestas: number = 4;
 
-  preguntas:  Record<string, Array<string> > = {
-  "preguntaNombre": [],
-  "preguntaPeso":  [],
-  "preguntaNombreDos": [],
-  "preguntaAltura":  [],}
+  preguntas: Record<string, Array<string>> = {
+    "preguntaNombre": [],
+    "preguntaPeso": [],
+    "preguntaNombreDos": [],
+    "preguntaAltura": [],
+  }
 
   respuestasCorrectas: Array<number> = [];
   respuestasUsuario: Array<boolean> = [];
@@ -40,17 +41,20 @@ export class CuestionarioComponent {
     }
     for (var i = 0; i <= this.numeroDePreguntas - 1; ++i) {
       var lugarAleatorio = Math.floor(Math.random() * (this.numeroDeRespuestas));
-      if(i == 0){
-      this.preguntas["preguntaNombre"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].nombre;
-      }
-      else if(i == 1){
-      this.preguntas["preguntaPeso"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].peso.toString();
-      }
-      else if(i == 2){
-      this.preguntas["preguntaNombre"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].nombre;
-      }
-      else if(i == 3){
-      this.preguntas["preguntaAltura"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].altura.toString();
+
+
+      switch (i) {
+        case 0:
+          this.preguntas["preguntaNombre"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].nombre;
+          break;
+        case 1:
+          this.preguntas["preguntaPeso"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].peso.toString();
+          break;
+        case 2:
+          this.preguntas["preguntaNombre"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].nombre;
+          break;
+        case 3:
+          this.preguntas["preguntaAltura"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].altura.toString();
       }
       this.respuestasCorrectas[i] = lugarAleatorio;
     }
@@ -60,9 +64,9 @@ export class CuestionarioComponent {
     if (eleccion == this.DatosService.listaPokemonsVisibles[0].nombre ||
       eleccion == this.DatosService.listaPokemonsVisibles[1].peso.toString() ||
       eleccion == this.DatosService.listaPokemonsVisibles[2].nombre ||
-      eleccion == this.DatosService.listaPokemonsVisibles[3].altura.toString()      
-      ) {
-        this.respuestasUsuario[numeroPregunta - 1] = true;
+      eleccion == this.DatosService.listaPokemonsVisibles[3].altura.toString()
+    ) {
+      this.respuestasUsuario[numeroPregunta - 1] = true;
       console.log("ole!");
     }
     else {
@@ -71,7 +75,7 @@ export class CuestionarioComponent {
     }
     this.DatosService.emergente = "pregunta" + (numeroPregunta + 1);
     console.log(this.DatosService.emergente);
-    
-      }
-  
+
+  }
+
 }
