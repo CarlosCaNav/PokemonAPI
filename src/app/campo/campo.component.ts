@@ -69,7 +69,7 @@ export class CampoComponent {
       }
       setTimeout(() => {
         DatosService.emergente = "teamRocket";
-        for (let i = 0; i <= DatosService.numerosPokemonsVisibles + 1; ++i)
+        for (let i = 0; i <= DatosService.numerosPokemonsVisibles; ++i)
           this.pokemones[i] = {
             'margin-left': "-500px",
             'margin-top': window.innerHeight / 2 + "px",
@@ -81,6 +81,7 @@ export class CampoComponent {
       }, DatosService.segundosDeInvestigacion * 1000 + 3000)
 
       setTimeout(() => {
+        DatosService.emergente = "teamRocket";
         DatosService.fase = "cuestionario";
       }, DatosService.segundosDeInvestigacion * 1000 + 11000)
     }

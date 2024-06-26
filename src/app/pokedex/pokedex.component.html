@@ -7,7 +7,11 @@
 
         <div class="info">
             <b> Nombre:
-                {{this.DatosService.listaPokemonsVisibles[this.DatosService.pokemonMostrado].nombre}} </b></div>
+                {{this.DatosService.listaPokemonsVisibles[this.DatosService.pokemonMostrado].nombre}} <br>
+                Altura: {{this.DatosService.listaPokemonsVisibles[this.DatosService.pokemonMostrado].altura}}cm<br>
+                Peso: {{this.DatosService.listaPokemonsVisibles[this.DatosService.pokemonMostrado].peso}}kg<br>
+            </b>
+        </div>
         <!-- <div class="bCerrar" (click)="DatosService.cambioEmergente('nada')">Cerrar</div> -->
     </div>
 </div>
