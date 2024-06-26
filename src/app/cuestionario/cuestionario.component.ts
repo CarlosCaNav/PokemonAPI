@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 import { DatosService } from '../datos.service';
 
 @Component({
-  selector: 'app-cuestionario',/* 
-  standalone: true,
-  imports: [], */
+  selector: 'app-cuestionario',
   templateUrl: './cuestionario.component.html',
   styleUrl: './cuestionario.component.css'
 })
@@ -29,34 +27,28 @@ export class CuestionarioComponent {
   ) {
     for (var i = 0; i <= this.numeroDeRespuestas - 1; ++i) {
       this.preguntas["preguntaNombre"][i] = this.DatosService.listaPokemonsCuestionario[i].nombre;
-    }
-    for (var i = 0; i <= this.numeroDeRespuestas - 1; ++i) {
       this.preguntas["preguntaPeso"][i] = this.DatosService.listaPokemonsCuestionario[i].peso.toString();
-    }
-    for (var i = 0; i <= this.numeroDeRespuestas - 1; ++i) {
-      this.preguntas["preguntaNombre"][i] = this.DatosService.listaPokemonsCuestionario[i].nombre;
-    }
-    for (var i = 0; i <= this.numeroDeRespuestas - 1; ++i) {
+      this.preguntas["preguntaNombreDos"][i] = this.DatosService.listaPokemonsCuestionario[i].nombre;
       this.preguntas["preguntaAltura"][i] = this.DatosService.listaPokemonsCuestionario[i].altura.toString();
     }
     for (var i = 0; i <= this.numeroDePreguntas - 1; ++i) {
-      var lugarAleatorio = Math.floor(Math.random() * (this.numeroDeRespuestas));
+      var indiceAleatorio = Math.floor(Math.random() * (this.numeroDeRespuestas));
 
 
       switch (i) {
         case 0:
-          this.preguntas["preguntaNombre"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].nombre;
+          this.preguntas["preguntaNombre"][indiceAleatorio] = this.DatosService.listaPokemonsVisibles[i].nombre;
           break;
         case 1:
-          this.preguntas["preguntaPeso"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].peso.toString();
+          this.preguntas["preguntaPeso"][indiceAleatorio] = this.DatosService.listaPokemonsVisibles[i].peso.toString();
           break;
         case 2:
-          this.preguntas["preguntaNombre"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].nombre;
+          this.preguntas["preguntaNombreDos"][indiceAleatorio] = this.DatosService.listaPokemonsVisibles[i].nombre;
           break;
         case 3:
-          this.preguntas["preguntaAltura"][lugarAleatorio] = this.DatosService.listaPokemonsVisibles[i].altura.toString();
+          this.preguntas["preguntaAltura"][indiceAleatorio] = this.DatosService.listaPokemonsVisibles[i].altura.toString();
       }
-      this.respuestasCorrectas[i] = lugarAleatorio;
+      this.respuestasCorrectas[i] = indiceAleatorio;
     }
   }
 
