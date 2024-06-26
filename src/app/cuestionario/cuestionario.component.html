@@ -22,7 +22,7 @@
         <div class="imagen" [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[2].urlSprite}"></div>
         Cómo se llama este bicho
         <ul>
-            <li *ngFor="let pregunta of preguntas['preguntaNombre']"><button class="boton" (click)="respuesta(pregunta.toString(), 3)">{{pregunta}}</button></li>
+            <li *ngFor="let pregunta of preguntas['preguntaNombreDos']"><button class="boton" (click)="respuesta(pregunta.toString(), 3)">{{pregunta}}</button></li>
         </ul>
     </div>
     <div class="cuestionario" *ngIf="this.DatosService.emergente == 'pregunta4'">
