@@ -1,7 +1,7 @@
 <div class="fondo">
     <div class="cuestionario" *ngIf="this.DatosService.emergente == 'teamRocket'">
         <div class="rocket"> </div> ¡¡Estos pokemons no eran de nadie!! <br>
-         Demuéstranos que lo sabes tódo de ellos y los liberaremos. <br>Si no... haremos pienso para Pikachus con ellos!
+         Demuéstranos que lo sabes todo de ellos y los liberaremos. <br>Si no... haremos pienso para Pikachus con ellos!
         <button class="boton siguiente" (click)="DatosService.cambioEmergente('pregunta1')">siguiente</button>
     </div>
     <div class="cuestionario" *ngIf="this.DatosService.emergente == 'pregunta1'">

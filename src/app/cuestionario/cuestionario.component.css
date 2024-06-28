@@ -1,4 +1,5 @@
-.fondo { /* en la próxima actualización adaptaré todo a Flexbox */
+.fondo {
+    /* en la próxima actualización adaptaré todo a Flexbox */
     position: absolute;
     z-index: 1;
     height: 100vh;
@@ -22,7 +23,7 @@
     font-size: 30px;
     animation-name: entrada;
     animation-duration: 0.5s;
-    padding: 10px;
+    padding: 20px;
 }
 
 .imagen {
@@ -30,14 +31,17 @@
     height: 96px;
     width: 96px;
 }
-.rocket{
-    margin: 10px 10px 10px;
+
+.rocket {
+    /*  margin: 10px 10px 10px; */
+    margin-bottom: 10px;
     height: 300px;
-    width: 580px;
+    width: 600px;
     border-radius: 10px;
     border: 2px solid black;
     background-image: url(./../../assets/teamRocket.jpg);
 }
+
 .boton {
     margin: 2px 2px 2px 2px;
     height: 25px;
@@ -45,7 +49,8 @@
     border-radius: 100px;
     background-color: rgb(243, 243, 195);
     box-shadow: 2px 2px 4px rgb(112, 112, 112), inset 0px 0px 2px 1px;
-    border: inherit;
+    /* border: inherit; */
+    border: 0px solid black;
 }
 
 .boton:hover {

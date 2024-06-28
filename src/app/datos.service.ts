@@ -20,7 +20,7 @@ export class DatosService {
   numerosPokemonsCuestionario: number = 3;
   listaPokemonsCuestionario: Pokemon[] = [];
 
-  fase: string = "teamRocket";
+  fase: string = ""; /* teamRocket */
   emergente: string = "bienvenida"; /* bienvenida */
 
   pokemonMostrado: number = 0;
