@@ -88,6 +88,7 @@ export class CampoComponent {
   }
 
   pokemonObservado(numero: number) {
+    if(this.DatosService.emergente != "teamRocket")
     this.DatosService.emergente = "pokedex";
     this.DatosService.pokemonMostrado = numero;
   }

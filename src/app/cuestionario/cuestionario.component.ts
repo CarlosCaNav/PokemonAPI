@@ -20,6 +20,11 @@ export class CuestionarioComponent {
   respuestasCorrectas: Array<number> = [];
   respuestasUsuario: Array<boolean> = [];
 
+  enTransportadora: number = 0; /* llegado el momento, el número de pokemons que van de camino a la máquina de pienso */
+  fallo: boolean = false; /* ejecutar la animación de fallo */
+  libertad: boolean = false; /* ejecutar la animación de acierto */
+
+
 
 
   constructor(
@@ -70,4 +75,59 @@ export class CuestionarioComponent {
 
   }
 
+  resultado() {
+    const intervalId = setInterval(() => {
+      this.enTransportadora += 1;
+
+      if (this.respuestasUsuario[this.enTransportadora - 1] == false) {
+        setTimeout(() => {
+          this.fallo = true;
+          console.log(this.fallo);
+        }, 12200);
+
+        setTimeout(() => {
+          this.fallo = false;
+          console.log(this.fallo);
+        }, 14500);
+      }/* 
+      if (this.respuestasUsuario[contador - 1] == true) {
+        setTimeout(() => {
+          this.libertad = true;
+          console.log(this.fallo);
+        }, 11800);
+
+        setTimeout(() => {
+          this.libertad = false;
+          console.log(this.fallo);
+        }, 14000);
+      } */
+    }, 5000);
+
+    setTimeout(() => {
+      clearInterval(intervalId);
+    }, 60000)
+
+
+    /* 
+    for (var i = 0; i <= this.DatosService.numerosPokemonsVisibles; i++) {
+      setTimeout(() => {
+        this.enTransportadora = i;
+        console.log(this.enTransportadora);
+      }, 2500 * i);
+
+
+      if (this.respuestasUsuario[i] == false) {
+        setTimeout(() => {
+
+          this.fallo = true;
+          console.log(this.fallo);
+        }, i * 12000);
+
+        setTimeout(() => {
+          this.fallo = false;
+        }, i * 12200);
+      }
+    } */
+
+  }
 }
