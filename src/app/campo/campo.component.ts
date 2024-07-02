@@ -71,7 +71,7 @@ export class CampoComponent {
         DatosService.emergente = "teamRocket";
         for (let i = 0; i <= DatosService.numerosPokemonsVisibles; ++i)
           this.pokemones[i] = {
-            'margin-left': "-500px",
+            'margin-left': "-30vw",
             'margin-top': window.innerHeight / 2 + "px",
             'scale': window.innerHeight / 2 / window.innerHeight * 3,
             'background-image': DatosService.listaPokemonsVisibles[i].urlSprite,
@@ -88,6 +88,7 @@ export class CampoComponent {
   }
 
   pokemonObservado(numero: number) {
+    if(this.DatosService.emergente != "teamRocket")
     this.DatosService.emergente = "pokedex";
     this.DatosService.pokemonMostrado = numero;
   }
