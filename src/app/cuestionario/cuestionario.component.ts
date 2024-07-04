@@ -22,7 +22,6 @@ export class CuestionarioComponent {
 
   enTransportadora: number = 0; /* llegado el momento, el número de pokemons que van de camino a la máquina de pienso */
   fallo: boolean = false; /* ejecutar la animación de fallo */
-  libertad: boolean = false; /* ejecutar la animación de acierto */
 
 
 
@@ -75,20 +74,40 @@ export class CuestionarioComponent {
 
   }
 
-  resultado() {
+  async resultado() {
+
+    const duracionIntervalo: number = 5000
     const intervalId = setInterval(() => {
+      
       this.enTransportadora += 1;
 
+      const pokemonEnCinta = this.DatosService.listaPokemonsVisibles[this.enTransportadora -1];
+
+      console.log("otro pokemon!!!");
+      console.log(this.enTransportadora  -1);
+      console.log(pokemonEnCinta.nombre);
+
+      const audio = new Audio (pokemonEnCinta.sonido);
+      audio.load();
+      
       if (this.respuestasUsuario[this.enTransportadora - 1] == false) {
         setTimeout(() => {
           this.fallo = true;
           console.log(this.fallo);
+
+          console.log(pokemonEnCinta.nombre);
+          audio.play();
         }, 12200);
 
         setTimeout(() => {
           this.fallo = false;
           console.log(this.fallo);
         }, 14500);
+
+        setTimeout(() => { 
+          this.DatosService.emergente = "fin";
+        }, duracionIntervalo * 7);
+        
       }/* 
       if (this.respuestasUsuario[contador - 1] == true) {
         setTimeout(() => {
@@ -101,11 +120,11 @@ export class CuestionarioComponent {
           console.log(this.fallo);
         }, 14000);
       } */
-    }, 5000);
+    }, duracionIntervalo);
 
     setTimeout(() => {
       clearInterval(intervalId);
-    }, 60000)
+    }, duracionIntervalo * 4)
 
 
     /* 

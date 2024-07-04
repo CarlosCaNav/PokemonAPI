@@ -41,7 +41,7 @@ export class AppComponent {
           indice: indice,
           urlSprite: 'url(' + pokemon.sprites.front_default + ')',
           urlSpriteBack:  'url(' + pokemon.sprites.back_default + ')',
-          sonido: pokemon.cries.latest,
+          sonido: pokemon.cries.latest , /* lo de New Audio lo he puesto yo pa ver si va */
           peso: pokemon.weight / 10, // kg
           altura: pokemon.height * 10, // cm
         };

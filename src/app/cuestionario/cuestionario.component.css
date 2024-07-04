@@ -98,27 +98,31 @@
 
 @keyframes probando {
     0% {
+        scale: 0;
         opacity: 0;
-        margin-top: calc(82vh - 100px);
-        margin-left: 7vw;
+        margin-top: calc(80vh - 100px);
+        margin-left: 9vw;
     }
     5% {
+        scale: 2;
         opacity: 1;
+        margin-top: calc(81vh - 100px);
+        margin-left: 8vw;
     }
 
     18% {
         margin-top: calc(82vh - 100px);
-        margin-left: 7vw;
+        margin-left: 8.5vw;
     }
 
     19% {
         margin-top: calc(80vh - 100px);
-        margin-left: 7.5vw;
+        margin-left: 9vw;
     }
 
     20% {
         margin-top: calc(87vh - 100px);
-        margin-left: 8vw;
+        margin-left: 9.5vw;
     }
 
     100% {
@@ -170,7 +174,7 @@
     scale: 2;
     margin-top: calc(87vh - 100px);
     animation-name: petando;
-    animation-duration: 15s;
+    animation-duration: 16s;
     animation-timing-function: linear;
 }
 
@@ -179,26 +183,42 @@
         margin-left: 50vw;
         margin-top: calc(87vh - 100px);
     }
-    89% {
+    70% {
         margin-left: 50vw;
         margin-top: calc(87vh - 100px);
     }
 
-    90% {
+    85% {
         margin-top: calc(87vh - 100px);
         margin-left: 70vw;
         scale: 2;
+    }
 
+    87% {
+        margin-top: calc(87vh - 100px);
+        margin-left: 70vw;
+        scale: 2;
+    }
+
+    87.5% {
+        margin-top: calc(80vh - 100px);
+        margin-left: 72vw;
+        scale: 1.7;
+    }
+    88% {
+        margin-top: calc(82vh - 100px);
+        margin-left: 73vw;
+        scale: 1.5;
     }
 
     99% {
-        margin-top: calc(10vh - 100px);
+        margin-top: calc(40vh - 100px);
         margin-left: 95vw;
         scale: 0;
         opacity: 1;
     }
     100% {
-        margin-top: calc(10vh - 100px);
+        margin-top: 40vh;
         margin-left: 95vw;
         scale: 0;
         opacity: 0;

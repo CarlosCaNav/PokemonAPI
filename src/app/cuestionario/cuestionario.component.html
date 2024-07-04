@@ -11,17 +11,18 @@
 <div class="cuestionario" *ngIf="this.DatosService.emergente == 'pregunta1'">
     <div class="imagen" [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[0].urlSprite}">
     </div>
-    Cómo se llama este bicho
+    ¿Cómo se llama este bicho?
     <ul>
-        <li *ngFor="let pregunta of preguntas['preguntaNombre'] "><button class="boton"
-                (click)="respuesta(pregunta.toString(), 1)">{{pregunta}}</button></li>
+        <li *ngFor="let pregunta of preguntas['preguntaNombre'] ">
+            <button class="boton" (click)="respuesta(pregunta.toString(), 1)">{{pregunta}}</button>
+        </li>
     </ul>
 </div>
 <div class="cuestionario" *ngIf="this.DatosService.emergente == 'pregunta2'">
     <div class="imagen"
         [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[1].urlSprite, 'object-fit': 'cover'}">
     </div>
-    Cuál es el peso medio de este bicho
+    ¿Cuál es el peso medio de este bicho?
     <ul>
         <li *ngFor="let pregunta of preguntas['preguntaPeso']"><button class="boton"
                 (click)="respuesta(pregunta.toString(), 2)">{{pregunta}}kg</button></li>
@@ -30,7 +31,7 @@
 <div class="cuestionario" *ngIf="this.DatosService.emergente == 'pregunta3'">
     <div class="imagen" [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[2].urlSprite}">
     </div>
-    Cómo se llama este bicho
+    ¿Cómo se llama este bicho?
     <ul>
         <li *ngFor="let pregunta of preguntas['preguntaNombreDos']"><button class="boton"
                 (click)="respuesta(pregunta.toString(), 3)">{{pregunta}}</button></li>
@@ -39,7 +40,7 @@
 <div class="cuestionario" *ngIf="this.DatosService.emergente == 'pregunta4'">
     <div class="imagen" [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[3].urlSprite}">
     </div>
-    Cuánto mide este bicho
+    ¿Cuánto mide este bicho?
     <ul>
         <li *ngFor="let pregunta of preguntas['preguntaAltura']"><button class="boton"
                 (click)="respuesta(pregunta.toString(), 4); resultado()">{{pregunta}}cm</button></li>
@@ -63,8 +64,6 @@
 
 <div class="fallo" *ngIf="this.fallo == true"></div>
 
-
-<!-- aquí haré un for -->
 <div class="libertad" *ngIf="this.enTransportadora >= 1 && this.respuestasUsuario[0] == true"
     [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[0].urlSprite}"></div>
 
@@ -76,3 +75,18 @@
 
 <div class="libertad" *ngIf="this.enTransportadora >= 4 && this.respuestasUsuario[3] == true"
     [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[3].urlSprite}"></div>
+
+
+<!-- 
+<div class="libertad" *ngFor="let i of [0, 1, 2, 3]"
+  [ngIf]="this.enTransportadora >= (i + 1) && this.respuestasUsuario[i]"
+  [ngStyle]="{'background-image': DatosService.listaPokemonsVisibles[i].urlSprite}">
+</div> -->
+
+
+<div class="cuestionario" *ngIf="this.DatosService.emergente == 'fin'">
+    <div class="imagen" [ngStyle]="{'background-image': this.DatosService.listaPokemonsVisibles[3].urlSprite}">
+    </div>
+    ¡Fin! Espero no haber causado traumas en tu persona
+    <button class="boton" (click)="this.DatosService.cambioFaseYEmergente('teamRocket', 'bienvenida')">Reiniciar</button>
+</div>
