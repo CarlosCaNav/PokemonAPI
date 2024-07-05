@@ -198,6 +198,7 @@
         margin-top: calc(87vh - 100px);
         margin-left: 70vw;
         scale: 2;
+       /*  transform: scaleX(-1); */
     }
 
     87.5% {

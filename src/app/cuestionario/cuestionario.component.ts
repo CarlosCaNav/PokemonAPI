@@ -19,6 +19,7 @@ export class CuestionarioComponent {
 
   respuestasCorrectas: Array<number> = [];
   respuestasUsuario: Array<boolean> = [];
+  respuestasUsuarioTexto: Array<string> = [];
 
   enTransportadora: number = 0; /* llegado el momento, el número de pokemons que van de camino a la máquina de pienso */
   fallo: boolean = false; /* ejecutar la animación de fallo */
@@ -69,6 +70,9 @@ export class CuestionarioComponent {
       this.respuestasUsuario[numeroPregunta - 1] = false;
       console.log("uff");
     }
+
+    this.respuestasUsuarioTexto[numeroPregunta] = eleccion;
+
     this.DatosService.emergente = "pregunta" + (numeroPregunta + 1);
     console.log(this.DatosService.emergente);
 
