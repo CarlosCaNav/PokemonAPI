@@ -85,19 +85,19 @@
 
 
 <div class="cuestionario" *ngIf="this.DatosService.emergente == 'fin'">
-    ¡Fin! Espero no haberte causado traumas. <br>
+    ¡Fin! Espero no haberte generado traumas. <br>
     <br>
     Tus respuestas:
     <br>
-    Pregunta 1, Nombre: {{this.respuestasUsuarioTexto[1]}}<br>
-    Pregunta 2, Peso: {{this.respuestasUsuarioTexto[2]}}kg<br>
-    Pregunta 3, Nombre: {{this.respuestasUsuarioTexto[3]}}<br>
-    Pregunta 4, Altura: {{this.respuestasUsuarioTexto[4]}}cm<br>
+    Pregunta 1. Nombre: {{this.respuestasUsuarioTexto[1]}}.<br>
+    Pregunta 2. Peso: {{this.respuestasUsuarioTexto[2]}}kg.<br>
+    Pregunta 3. Nombre: {{this.respuestasUsuarioTexto[3]}}.<br>
+    Pregunta 4. Altura: {{this.respuestasUsuarioTexto[4]}}cm.<br>
     <br>
     Las respuestas corectas eran:<br>
-    Pregunta 1,Nombre: {{this.DatosService.listaPokemonsVisibles[0].nombre}}<br>
-    Pregunta 2,Peso: {{this.DatosService.listaPokemonsVisibles[1].peso.toString()}}kg<br>
-    Pregunta 3,Nombre: {{this.DatosService.listaPokemonsVisibles[2].nombre}}<br>
-    Pregunta 4,Altura: {{this.DatosService.listaPokemonsVisibles[3].altura.toString()}}cm<br>
+    Pregunta 1. Nombre: {{this.DatosService.listaPokemonsVisibles[0].nombre}}.<br>
+    Pregunta 2. Peso: {{this.DatosService.listaPokemonsVisibles[1].peso.toString()}}kg.<br>
+    Pregunta 3. Nombre: {{this.DatosService.listaPokemonsVisibles[2].nombre}}.<br>
+    Pregunta 4. Altura: {{this.DatosService.listaPokemonsVisibles[3].altura.toString()}}cm.<br>
     <button class="boton" (click)="this.DatosService.cambioFaseYEmergente('teamRocket', 'bienvenida')">Reiniciar</button>
 </div>

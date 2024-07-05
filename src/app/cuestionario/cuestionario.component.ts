@@ -110,7 +110,7 @@ export class CuestionarioComponent {
 
         setTimeout(() => { 
           this.DatosService.emergente = "fin";
-        }, duracionIntervalo * 7);
+        }, duracionIntervalo * 5);
         
       }/* 
       if (this.respuestasUsuario[contador - 1] == true) {
