@@ -25,6 +25,7 @@ export class CuestionarioComponent {
   fallo: boolean = false; /* ejecutar la animación de fallo */
 
 
+  audioTransportadora = new Audio('assets/Transportadora.ogg');
 
 
   constructor(
@@ -78,23 +79,28 @@ export class CuestionarioComponent {
 
   }
 
-  async resultado() {
+  resultado() {
+    const duracionIntervalo: number = 5000;
 
-    const duracionIntervalo: number = 5000
+
+    this.audioTransportadora.play();
+
     const intervalId = setInterval(() => {
-      
+
       this.enTransportadora += 1;
 
-      const pokemonEnCinta = this.DatosService.listaPokemonsVisibles[this.enTransportadora -1];
+      const pokemonEnCinta = this.DatosService.listaPokemonsVisibles[this.enTransportadora - 1];
 
       console.log("otro pokemon!!!");
-      console.log(this.enTransportadora  -1);
+      console.log(this.enTransportadora - 1);
       console.log(pokemonEnCinta.nombre);
 
-      const audio = new Audio (pokemonEnCinta.sonido);
+      const audio = new Audio(pokemonEnCinta.sonido);
       audio.load();
-      
+
       if (this.respuestasUsuario[this.enTransportadora - 1] == false) {
+
+
         setTimeout(() => {
           this.fallo = true;
           console.log(this.fallo);
@@ -108,10 +114,10 @@ export class CuestionarioComponent {
           console.log(this.fallo);
         }, 14500);
 
-        setTimeout(() => { 
+        setTimeout(() => {
           this.DatosService.emergente = "fin";
-        }, duracionIntervalo * 5);
-        
+        }, duracionIntervalo * 6);
+
       }/* 
       if (this.respuestasUsuario[contador - 1] == true) {
         setTimeout(() => {
