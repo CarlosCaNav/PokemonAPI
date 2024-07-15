@@ -6,6 +6,7 @@
     background-image: url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png);
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 
 .pokemon {

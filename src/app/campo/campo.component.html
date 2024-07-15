@@ -4,5 +4,11 @@
     <div class="pokemon" [ngStyle]="pokemones[1]" (click)="pokemonObservado(1)"></div>
     <div class="pokemon" [ngStyle]="pokemones[2]" (click)="pokemonObservado(2)"></div>
     <div class="pokemon" [ngStyle]="pokemones[3]" (click)="pokemonObservado(3)"></div>
+
+    <div *ngIf="this.DatosService.emergente == 'teamRocket'" class="pokeball uno"></div>
+    <div *ngIf="this.DatosService.emergente == 'teamRocket'" class="pokeball dos"></div>
+    <div *ngIf="this.DatosService.emergente == 'teamRocket'" class="pokeball tres"></div>
+    <div *ngIf="this.DatosService.emergente == 'teamRocket'" class="pokeball cuatro"></div>
+
     </div>
     <app-pokedex *ngIf="this.DatosService.emergente == 'pokedex'" />
