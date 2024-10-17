@@ -1,3 +1,16 @@
+.botonesSuperiores{
+    float: right;
+    margin-top: 20px;
+    margin-right: 150px;
+}
+
+.superiores{
+    position: absolute;
+    z-index: 10;
+    margin-top: 20px;
+    margin-left: 80vh;
+}
+
 .fondo {
     display: flex;
     align-items: center;

@@ -114,11 +114,16 @@ export class CuestionarioComponent {
           console.log(this.fallo);
         }, 14500);
 
-        setTimeout(() => {
-          this.DatosService.emergente = "fin";
-        }, duracionIntervalo * 6);
+      }
 
-      }/* 
+      //esto antes estaba dentro del paréntesis
+      setTimeout(() => {
+        this.DatosService.emergente = "fin"; 
+      }, duracionIntervalo * 6);
+
+      
+      
+      /* 
       if (this.respuestasUsuario[contador - 1] == true) {
         setTimeout(() => {
           this.libertad = true;
