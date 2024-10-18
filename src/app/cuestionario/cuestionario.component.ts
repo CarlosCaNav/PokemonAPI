@@ -84,6 +84,8 @@ export class CuestionarioComponent {
 
 
     this.audioTransportadora.play();
+    this.DatosService.musicaTeamRocket.pause();
+    this.DatosService.musicaPicadero.play();
 
     const intervalId = setInterval(() => {
 

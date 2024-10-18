@@ -79,6 +79,7 @@
     height: 24px;
 }
 
-.siguiente {
-    margin-left: 350px;
+.siguiente {/* 
+    margin-left: 350px; */
+    float: right;
 }

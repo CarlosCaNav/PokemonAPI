@@ -14,8 +14,8 @@
 
 .cuestionario {
     position: absolute;
-    z-index: 5;
-    height: 500px;
+    z-index: 5;/* 
+    height: 520px; */
     width: 600px;
     margin-top: calc(50vh - 300px);
     margin-left: calc(50vw - 300px);
@@ -80,7 +80,10 @@
 }
 
 .siguiente {
-    margin-left: 450px;
+    margin-top: 30px;/* 
+    margin-left: 470px; */
+    float: right;
+    margin-right: 20px;
 }
 
 .haciaMaquina {

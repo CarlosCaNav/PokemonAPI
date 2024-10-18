@@ -14,7 +14,7 @@ export class DatosService {
   URL_LISTA_POKEMON: string = `https://pokeapi.co/api/v2/pokemon?limit=${this.numerosPokemonsTotales}&offset=0`;
 
   numerosPokemonsVisibles: number = 3;
-  segundosDeInvestigacion: number = 30;
+  segundosDeInvestigacion: number = 20;
   listaPokemonsVisibles: Pokemon[] = [];
 
   numerosPokemonsCuestionario: number = 3;
@@ -27,6 +27,7 @@ export class DatosService {
 
   musicaInicio = new Audio('assets/Alegre.mp3');
   musicaTeamRocket = new Audio('assets/suspense.mp3');
+  musicaPicadero = new Audio('assets/PixelTension.mp3');
 
 
   cambioFaseYEmergente(fase: string, emergente: string) {
