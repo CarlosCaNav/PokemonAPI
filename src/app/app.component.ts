@@ -13,13 +13,16 @@ export class AppComponent {
 
   constructor(public DatosService: DatosService) { } /* esto escrito a mano */
 
+
   ngOnInit() {
     this.DatosService.http.get(this.DatosService.URL_LISTA_POKEMON).subscribe((lista_pokemons: any) => {
       this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.numerosPokemonsVisibles, this.DatosService.listaPokemonsVisibles);
 
       this.pedirYGuardarPokemons(lista_pokemons, this.DatosService.numerosPokemonsCuestionario, this.DatosService.listaPokemonsCuestionario);
     });
+
   }
+  
 
   pedirYGuardarPokemons(lista_pokemons: any, numero_pokemons: number, listaAGuardar: Pokemon[]) {
     var listaDeNumerosAleatorios: number[] = [];
@@ -41,7 +44,7 @@ export class AppComponent {
           indice: indice,
           urlSprite: 'url(' + pokemon.sprites.front_default + ')',
           urlSpriteBack:  'url(' + pokemon.sprites.back_default + ')',
-          sonido: pokemon.cries.latest,
+          sonido: pokemon.cries.latest , /* lo de New Audio lo he puesto yo pa ver si va */
           peso: pokemon.weight / 10, // kg
           altura: pokemon.height * 10, // cm
         };
@@ -60,6 +63,11 @@ export class AppComponent {
     else if (this.DatosService.segundosDeInvestigacion <= 0) {
       this.DatosService.segundosDeInvestigacion = 2
     }
+  }
+
+
+  irAlPortafolio() {
+    window.open('https://carloscanav.github.io/', '_blank');
   }
 }
 

@@ -1,20 +1,24 @@
-.fondo { /* en la próxima actualización adaptaré todo a Flexbox */
+.fondo {
+    /* en la próxima actualización adaptaré todo a Flexbox */
     position: absolute;
-    z-index: 1;
+    image-rendering: pixelated;
     height: 100vh;
     width: 100vw;
+    /* 
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-image: url(./../../assets/fondoCarcel.jpg);
+    justify-content: center; */
     background-size: 100vw 100vh;
+    overflow: hidden;
 }
 
 .cuestionario {
     position: absolute;
-    z-index: 5;
-    height: 500px;
+    z-index: 5;/* 
+    height: 520px; */
     width: 600px;
+    margin-top: calc(50vh - 300px);
+    margin-left: calc(50vw - 300px);
     border: 2px solid black;
     background-color: beige;
     border-radius: 20px;
@@ -22,7 +26,22 @@
     font-size: 30px;
     animation-name: entrada;
     animation-duration: 0.5s;
-    padding: 10px;
+    padding: 20px;
+}
+
+@keyframes entrada {
+    0% {
+        scale: 0;
+    }
+
+    50% {
+        scale: 1.05;
+    }
+
+    100% {
+        scale: 1;
+    }
+
 }
 
 .imagen {
@@ -30,14 +49,17 @@
     height: 96px;
     width: 96px;
 }
-.rocket{
-    margin: 10px 10px 10px;
+
+.rocket {
+    /*  margin: 10px 10px 10px; */
+    margin-bottom: 10px;
     height: 300px;
-    width: 580px;
+    width: 600px;
     border-radius: 10px;
     border: 2px solid black;
     background-image: url(./../../assets/teamRocket.jpg);
 }
+
 .boton {
     margin: 2px 2px 2px 2px;
     height: 25px;
@@ -45,7 +67,8 @@
     border-radius: 100px;
     background-color: rgb(243, 243, 195);
     box-shadow: 2px 2px 4px rgb(112, 112, 112), inset 0px 0px 2px 1px;
-    border: inherit;
+    /* border: inherit; */
+    border: 0px solid black;
 }
 
 .boton:hover {
@@ -57,5 +80,152 @@
 }
 
 .siguiente {
-    margin-left: 450px;
+    margin-top: 30px;/* 
+    margin-left: 470px; */
+    float: right;
+    margin-right: 20px;
+}
+
+.haciaMaquina {
+    position: absolute;
+    z-index: 3;
+    height: 100px;
+    width: 100px;
+    margin-left: 50vw;
+    scale: 2;
+    margin-top: calc(87vh - 100px);
+    animation-name: probando;
+    animation-duration: 12s;
+    animation-timing-function: linear;
+    }
+
+@keyframes probando {
+    0% {
+        scale: 0;
+        opacity: 0;
+        margin-top: calc(80vh - 100px);
+        margin-left: 9vw;
+    }
+    5% {
+        scale: 2;
+        opacity: 1;
+        margin-top: calc(81vh - 100px);
+        margin-left: 8vw;
+    }
+
+    18% {
+        margin-top: calc(82vh - 100px);
+        margin-left: 8.5vw;
+    }
+
+    19% {
+        margin-top: calc(80vh - 100px);
+        margin-left: 9vw;
+    }
+
+    20% {
+        margin-top: calc(87vh - 100px);
+        margin-left: 9.5vw;
+    }
+
+    100% {
+        margin-left: 48vw;
+    }
+
+}
+
+.fallo {
+    position: absolute;
+    z-index: 5;
+    height: 8vh;
+    width: 6vw;
+    margin-left: 61vw;
+    margin-top: 56vh;
+    z-index: 4;
+    background-image: none;
+    background-size: 100%;
+    animation-name: Holi;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+}
+
+@keyframes Holi {
+    0% {
+        background-image: none;
+    }
+
+    1% {
+        background-image: url(./../../assets/sangre.gif);
+    }
+
+    99% {
+        background-image: url(./../../assets/sangre.gif);
+    }
+
+    100% {
+        background-image: none;
+    }
+}
+
+
+.libertad {
+    position: absolute;
+    z-index: 3;
+    height: 100px;
+    width: 100px;
+    margin-left: 50vw;
+    scale: 2;
+    margin-top: calc(87vh - 100px);
+    animation-name: petando;
+    animation-duration: 16s;
+    animation-timing-function: linear;
+}
+
+@keyframes petando {
+    0% {
+        margin-left: 50vw;
+        margin-top: calc(87vh - 100px);
+    }
+    70% {
+        margin-left: 50vw;
+        margin-top: calc(87vh - 100px);
+    }
+
+    85% {
+        margin-top: calc(87vh - 100px);
+        margin-left: 70vw;
+        scale: 2;
+    }
+
+    87% {
+        margin-top: calc(87vh - 100px);
+        margin-left: 70vw;
+        scale: 2;
+       /*  transform: scaleX(-1); */
+    }
+
+    87.5% {
+        margin-top: calc(80vh - 100px);
+        margin-left: 72vw;
+        scale: 1.7;
+    }
+    88% {
+        margin-top: calc(82vh - 100px);
+        margin-left: 73vw;
+        scale: 1.5;
+    }
+
+    99% {
+        margin-top: calc(40vh - 100px);
+        margin-left: 95vw;
+        scale: 0;
+        opacity: 1;
+    }
+    100% {
+        margin-top: 40vh;
+        margin-left: 95vw;
+        scale: 0;
+        opacity: 0;
+    }
+
 }

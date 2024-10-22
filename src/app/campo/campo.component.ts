@@ -9,6 +9,7 @@ import { DatosService } from '../datos.service'; /* esto escrito a mano */
 export class CampoComponent {
 
   pokemones: Array<Record<string, string | number>> = [];
+  sonidoPokedex = new Audio('assets/Ding.ogg');
 
   constructor(public DatosService: DatosService) { /* lo de los paréntes escrito a mano */
 
@@ -69,9 +70,11 @@ export class CampoComponent {
       }
       setTimeout(() => {
         DatosService.emergente = "teamRocket";
+        this.DatosService.musicaTeamRocket.play();
+        this.DatosService.musicaInicio.pause();
         for (let i = 0; i <= DatosService.numerosPokemonsVisibles; ++i)
           this.pokemones[i] = {
-            'margin-left': "-500px",
+            'margin-left': "-30vw",
             'margin-top': window.innerHeight / 2 + "px",
             'scale': window.innerHeight / 2 / window.innerHeight * 3,
             'background-image': DatosService.listaPokemonsVisibles[i].urlSprite,
@@ -88,6 +91,8 @@ export class CampoComponent {
   }
 
   pokemonObservado(numero: number) {
+    this.sonidoPokedex.play();
+    if(this.DatosService.emergente != "teamRocket")
     this.DatosService.emergente = "pokedex";
     this.DatosService.pokemonMostrado = numero;
   }

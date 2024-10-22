@@ -19,7 +19,13 @@ export class CuestionarioComponent {
 
   respuestasCorrectas: Array<number> = [];
   respuestasUsuario: Array<boolean> = [];
+  respuestasUsuarioTexto: Array<string> = [];
 
+  enTransportadora: number = 0; /* llegado el momento, el número de pokemons que van de camino a la máquina de pienso */
+  fallo: boolean = false; /* ejecutar la animación de fallo */
+
+
+  audioTransportadora = new Audio('assets/Transportadora.ogg');
 
 
   constructor(
@@ -65,9 +71,99 @@ export class CuestionarioComponent {
       this.respuestasUsuario[numeroPregunta - 1] = false;
       console.log("uff");
     }
+
+    this.respuestasUsuarioTexto[numeroPregunta] = eleccion;
+
     this.DatosService.emergente = "pregunta" + (numeroPregunta + 1);
     console.log(this.DatosService.emergente);
 
   }
 
+  resultado() {
+    const duracionIntervalo: number = 5000;
+
+
+    this.audioTransportadora.play();
+    this.DatosService.musicaTeamRocket.pause();
+    this.DatosService.musicaPicadero.play();
+
+    const intervalId = setInterval(() => {
+
+      this.enTransportadora += 1;
+
+      const pokemonEnCinta = this.DatosService.listaPokemonsVisibles[this.enTransportadora - 1];
+
+      console.log("otro pokemon!!!");
+      console.log(this.enTransportadora - 1);
+      console.log(pokemonEnCinta.nombre);
+
+      const audio = new Audio(pokemonEnCinta.sonido);
+      audio.load();
+
+      if (this.respuestasUsuario[this.enTransportadora - 1] == false) {
+
+
+        setTimeout(() => {
+          this.fallo = true;
+          console.log(this.fallo);
+
+          console.log(pokemonEnCinta.nombre);
+          audio.play();
+        }, 12200);
+
+        setTimeout(() => {
+          this.fallo = false;
+          console.log(this.fallo);
+        }, 14500);
+
+      }
+
+      //esto antes estaba dentro del paréntesis
+      setTimeout(() => {
+        this.DatosService.emergente = "fin"; 
+      }, duracionIntervalo * 6);
+
+      
+      
+      /* 
+      if (this.respuestasUsuario[contador - 1] == true) {
+        setTimeout(() => {
+          this.libertad = true;
+          console.log(this.fallo);
+        }, 11800);
+
+        setTimeout(() => {
+          this.libertad = false;
+          console.log(this.fallo);
+        }, 14000);
+      } */
+    }, duracionIntervalo);
+
+    setTimeout(() => {
+      clearInterval(intervalId);
+    }, duracionIntervalo * 4)
+
+
+    /* 
+    for (var i = 0; i <= this.DatosService.numerosPokemonsVisibles; i++) {
+      setTimeout(() => {
+        this.enTransportadora = i;
+        console.log(this.enTransportadora);
+      }, 2500 * i);
+
+
+      if (this.respuestasUsuario[i] == false) {
+        setTimeout(() => {
+
+          this.fallo = true;
+          console.log(this.fallo);
+        }, i * 12000);
+
+        setTimeout(() => {
+          this.fallo = false;
+        }, i * 12200);
+      }
+    } */
+
+  }
 }

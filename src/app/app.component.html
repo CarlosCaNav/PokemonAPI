@@ -1,9 +1,24 @@
+<div class="botonesSuperiores">
+<button class="superiores boton" (click)="irAlPortafolio()">Volver a mi portafolio</button>
+</div>
+
 <div class="fondo">
+    
+    <div class="bienvenida" *ngIf="this.DatosService.emergente == 'intro'">
+        <div class="contenido">¡Le doy la bienvenida!<br><br>
+            Éste es un pequeño juego que consiste
+            en observar y aprender sobre los Pokemons a la vista, responder a unas preguntas sobre ellos,
+            y contemplar su destino. <br><br> ¡Buena suerte!<br>
+            <button class="boton siguiente"
+                (click)="DatosService.cambioEmergente('bienvenida')">Empezar</button>
+        </div>
+    </div>
+
 
     <div class="bienvenida" *ngIf="this.DatosService.emergente == 'bienvenida'">
         <div class="contenido">
-            Este será un lugar estupendo para observar y aprender sobre Pokemons.<br><br>
-            Pulsa sobre un Pokemon para aprender sobre el.<br>
+            Éste será un lugar estupendo para observar y aprender sobre Pokemons.<br><br>
+            Pulsa sobre un Pokemon para aprender sobre él.<br>
 
             <br>
             Tiempo de investigación: <br>
@@ -15,5 +30,5 @@
         </div>
     </div>
 </div>
-<app-cuestionario *ngIf="this.DatosService.fase == 'cuestionario'"  />
+<app-cuestionario *ngIf="this.DatosService.fase == 'cuestionario'" />
 <app-campo *ngIf="this.DatosService.fase == 'campo'" />

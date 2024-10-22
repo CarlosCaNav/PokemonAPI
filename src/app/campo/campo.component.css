@@ -1,11 +1,12 @@
 .fondo {
     position: absolute;
+    image-rendering: pixelated;
     z-index: 0;
     height: 100vh;
     width: 100vw;
     background-image: url(/../../assets/fondo.jpg);
     background-size: 100vw 100vh;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .pokemon {
@@ -13,9 +14,114 @@
     z-index: 1;
     height: 100px;
     width: 100px;
+    background-repeat: no-repeat;
     transition: margin-left 2000ms, margin-top 2000ms, scale 2000ms, transform 0.5s, z-index 2s;
     cursor: url(/assets/punkedex.png), auto;
     /* filter: drop-shadow( 20px 20px 20px black); */
+}
+
+.pokeball {
+    position: absolute;
+    z-index: 4;
+    margin-left: -200px;
+    height: 70px;
+    width: 100px;
+    background-image: url(/assets/pokeball.png);
+}
+
+.uno {
+    animation-timing-function: ease-in-out;
+    animation-name: uno;
+    animation-duration: 7s;
+}
+
+@keyframes uno {
+    0% {
+        margin-top: 50vh;
+        margin-left: 110vw;
+        rotate: 15deg;
+    }
+
+    52% {
+        margin-top: 30vh;
+    }
+
+    100% {
+        margin-top: 50vh;
+        margin-left: -20vw;
+        rotate: -15deg;
+    }
+}
+
+.dos {
+    animation-timing-function: ease-in-out;
+    animation-name: dos;
+    animation-duration: 7s;
+}
+
+@keyframes dos {
+    0% {
+        margin-top: 45vh;
+        margin-left: 115vw;
+        rotate: 15deg;
+    }
+
+    50% {
+        margin-top: 25vh;
+    }
+
+    100% {
+        margin-top: 52vh;
+        margin-left: -20vw;
+        rotate: -15deg;
+    }
+}
+
+.tres {
+    animation-timing-function: ease-in-out;
+    animation-name: tres;
+    animation-duration: 7s;
+}
+
+@keyframes tres {
+    0% {
+        margin-top: 55vh;
+        margin-left: 105vw;
+        rotate: 15deg;
+    }
+
+    54% {
+        margin-top: 35vh;
+    }
+
+    100% {
+        margin-top: 40vh;
+        margin-left: -15vw;
+        rotate: -15deg;
+    }
+}
+.cuatro {
+    animation-timing-function: ease-in-out;
+    animation-name: cuatro;
+    animation-duration: 8s;
+}
+
+@keyframes cuatro {
+    0% {
+        margin-top: 50vh;
+        margin-left: 125vw;
+        rotate: 15deg;
+    }
+
+    48% {
+        margin-top: 15vh;
+    }
+
+    100% {
+        margin-top: 40vh;
+        margin-left: -35vw;
+        rotate: -15deg;
+    }
 }
 
 .arbusto {
