@@ -61,14 +61,16 @@
 }
 
 .boton {
-    margin: 2px 2px 2px 2px;
-    height: 25px;
-    min-width: 25px;
+    margin: 5px 5px 5px 5px;
+    height: 30px;
+    min-width: 30px;
     border-radius: 100px;
     background-color: rgb(243, 243, 195);
     box-shadow: 2px 2px 4px rgb(112, 112, 112), inset 0px 0px 2px 1px;
     /* border: inherit; */
     border: 0px solid black;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .boton:hover {
@@ -76,7 +78,7 @@
 }
 
 .boton:active {
-    height: 24px;
+    height: 32px;
 }
 
 .siguiente {

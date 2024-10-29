@@ -64,10 +64,5 @@ export class AppComponent {
       this.DatosService.segundosDeInvestigacion = 2
     }
   }
-
-
-  irAlPortafolio() {
-    window.open('https://carloscanav.github.io/', '_blank');
-  }
 }
 

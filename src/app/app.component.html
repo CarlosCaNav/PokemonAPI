@@ -1,16 +1,17 @@
 <div class="botonesSuperiores">
-<button class="superiores boton" (click)="irAlPortafolio()">Volver a mi portafolio</button>
+    <a href="https://carloscanav.github.io/">
+        <button class="superiores boton" >Volver a mi portafolio</button>
+    </a>
 </div>
 
 <div class="fondo">
-    
+
     <div class="bienvenida" *ngIf="this.DatosService.emergente == 'intro'">
         <div class="contenido">¡Le doy la bienvenida!<br><br>
             Éste es un pequeño juego que consiste
             en observar y aprender sobre los Pokemons a la vista, responder a unas preguntas sobre ellos,
             y contemplar su destino. <br><br> ¡Buena suerte!<br>
-            <button class="boton siguiente"
-                (click)="DatosService.cambioEmergente('bienvenida')">Empezar</button>
+            <button class="boton siguiente" (click)="DatosService.cambioEmergente('bienvenida')">Empezar</button>
         </div>
     </div>
 
